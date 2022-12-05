@@ -17,10 +17,10 @@
  git config --global core.editor="emacs"
 #+END_EXAMPLE
 
-4. You can find the file recording your Git configuration on your home folder. For Windows, you can find it in =C:\Users\YourName\.gitconfig=. For Linux and Mac OS, you can find it in =/home/yourname/.gitconfig=.
+- You can find the file recording your Git configuration on your home folder. For *Windows* =C:\Users\YourName\.gitconfig=.
+   For *Linux* and *MacOS* =/home/yourname/.gitconfig=.
 
-*Note:* You can always change these later by running the same command again with
-different values. You can run this in any directory.
+*Note:* /You can always change these later by running the same command again with different values. You can run this in any directory./
 
 * Initializing Git
 
@@ -146,6 +146,17 @@ Add this text to it:
   IdentifyFile ~/.ssh/id_rsa
 #+end_src
 
+* Git Push
+
+Now there are two more arguments we have to put here,
+first one is =origin= and second one is =master=.
+Origin is an option set for us here and basically a word that stands for the location for our git repository.
+=master= is the branch that we want to push to.
+
+#+begin_src sh
+  git push origin master
+#+end_src
+
 * Git branches
 Git by default uses a branch called =master=.
 You can use the branch command to create a new branch, list all the branches in
@@ -167,7 +178,7 @@ Let’s start by creating a new branch. You can use the ~branch~ command, giving
 - To switch to another branch, you will use yet another Git command, aptly named ~switch~, which takes one argument, namely the name of the branch you wish to switch to:
 
   #+BEGIN_SRC sh
- git switch my-first-branch
+    git switch my-first-branch
   #+END_SRC
 
 - You can use ~git branch~ to list all the branches again: /asterisk/ ~(*)~ points to the branch you just switched to.
@@ -175,7 +186,7 @@ Let’s start by creating a new branch. You can use the ~branch~ command, giving
 + The ~git switch~ command lets you create a new branch and switch to it in one fell swoop. You can invoke the ~git switch~ command with the ~-c~ (or --create) flag, giving it the name of the branch you wish to create, like so:
 
   #+BEGIN_SRC sh
- git switch -c my-first-branch
+    git switch -c my-first-branch
   #+END_SRC
 
   This will prompt Git to create the branch called my-first-branch and switch to it immediately.
