@@ -68,7 +68,7 @@ In order to push to GitHub under your account, you're going to have to prove to 
 
 The way this is done is by using ~SSH keys~. You need to start by generating a key locally using the ~ssh-keygen~ command.
 
-+ Better if you follow this official documentations here: [[https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent][Generate and Add SSH key [GitHub]​]] and [[https://docs.gitlab.com/ee/user/ssh.html][SSH keys [GitLab]​]]
++ Better if you follow this official documentations here: [[https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent][Generate and Add SSH key (GitHub)​]] and [[https://docs.gitlab.com/ee/user/ssh.html][SSH keys (GitLab)​]]
 
 1. Open Terminal.
 2. Paste the text below, substituting in your GitHub email address.
