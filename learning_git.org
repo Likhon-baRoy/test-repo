@@ -4,14 +4,6 @@
 #+DATE:   2022 Nov 13
 #+TAGS:   git github blog website
 
-* Personal access tokens (classic)
-
-- This token was made for Head-first-git book tutorial purpose.
-
-#+begin_src
-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
-#+end_src
-
 * Introduce yourself to Git
 
 1. We will start with telling Git our full name.
