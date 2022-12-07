@@ -125,16 +125,15 @@ If you spotted a bug or you have any suggestions, please fill in an issue. If yo
 
 ** Special Thanks
 Everyone starts somewhere, and I started here.
+My heart whelming *Thanks* 🙏🏽 to you guy's 💜, who put all their effort always makes *Emacs* go one-step further.
 
-My heart whelming Thanks to you guy's, who put all their effort to make Emacs go one-step further.
-
-- *Uncle Dev* ([[https://github.com/daedreth/UncleDavesEmacs#readme][=GitHub=]], [[https://www.youtube.com/watch?v=d6iY_1aMzeg&list=PLX2044Ew-UVVv31a0-Qn3dA6Sd_-NyA1n][=YouTube=]])
-- *Mike Zamansky* ([[https://github.com/zamansky/emacs.dz#readme][=GitHub=]], [[https://www.youtube.com/watch?v=49kBWM3RQQ8&list=PL9KxKa8NpFxIcNQa9js7dQQIHc81b0-Xg][=YouTube=]], [[https://cestlaz.github.io/posts/using-emacs-1-setup/][=Website=]])
-- *Mingde (Matthew) Zeng* ([[https://github.com/MatthewZMD/.emacs.d#readme][=GitHub=]])
-- *System Crafters* ([[https://www.youtube.com/@SystemCrafters/playlists][=YouTube=]],=[[https://systemcrafters.cc/][Website]]=, [[https://config.daviwil.com/emacs][=Website=]])
+- *Uncle Dev* ([[https://github.com/daedreth/UncleDavesEmacs#readme][GitHub]], [[https://www.youtube.com/watch?v=d6iY_1aMzeg&list=PLX2044Ew-UVVv31a0-Qn3dA6Sd_-NyA1n][YouTube]])
+- *Mike Zamansky* ([[https://github.com/zamansky/emacs.dz#readme][GitHub]], [[https://www.youtube.com/watch?v=49kBWM3RQQ8&list=PL9KxKa8NpFxIcNQa9js7dQQIHc81b0-Xg][YouTube]], [[https://cestlaz.github.io/posts/using-emacs-1-setup/][Website]])
+- *Mingde (Matthew) Zeng* ([[https://github.com/MatthewZMD/.emacs.d#readme][GitHub]])
+- *System Crafters* ([[https://www.youtube.com/@SystemCrafters/playlists][YouTube]], [[https://systemcrafters.cc/][Website]], [[https://config.daviwil.com/emacs][Website]])
 - *Protesilaos Stavrou* ([[https://github.com/protesilaos/dotfiles/tree/master/emacs/.emacs.d][GitHub]], [[https://www.youtube.com/@protesilaos/playlists][YouTube]], [[https://protesilaos.com/emacs/dotemacs][Website]])
 
-And many other people from internet world.
+And many other people from the *Internet World*.
 
 * Prerequisites
 
@@ -179,7 +178,7 @@ S-TAB (hide-level) - fold the sub sections of the current section.
 #+end_example
 
 * Custom Configurations
-Here is my some personal changes for *Emacs* which comes default with this configuration.
+Here is my some personal changes for *Emacs* which comes default with this configuration. Checkout full documentation of Keybindings in [[https://github.com/Likhon-baRoy/org-notes/blob/main/emacs_user-manual.org][Emacs user-manual]].
 ** Custom key bindings
 
 #+BEGIN_SRC emacs-lisp
