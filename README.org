@@ -7,14 +7,15 @@
 #+html: <p><img alt="GPLv3 Software" align="right" src="https://www.gnu.org/graphics/gplv3-with-text-136x68.png"></p>
 [[https://www.gnu.org/licenses/gpl-3.0.txt][https://img.shields.io/badge/license-GPL_3-green.svg?style=flat&logo=appveyor]]
 [[https://github.com/ellerbrock/open-source-badges/][https://badges.frapsoft.com/os/v1/open-source.png?v=103]]
-[[https://img.shields.io/github/forks/Likhon-baRoy/.emacs.d.svg?style=flat]]
-[[https://img.shields.io/github/stars/Likhon-baRoy/.emacs.d.svg?style=flat]]
-[[https://img.shields.io/github/commit-activity/m/Likhon-baRoy/.emacs.d.svg?style=flat]]
-[[https://img.shields.io/tokei/lines/github/Likhon-baRoy/.emacs.d.svg?style=flat]]
 
 [[https://img.shields.io/badge/arch-yes-success.svg?logo=archlinux&style=flat-square]]
 [[https://img.shields.io/badge/macos-yes-success.svg?logo=apple&style=flat-square]]
 [[https://img.shields.io/badge/windows-untested-important.svg?logo=windows&style=flat-square]]
+
+[[https://img.shields.io/github/forks/Likhon-baRoy/.emacs.d.svg?style=flat]]
+[[https://img.shields.io/github/stars/Likhon-baRoy/.emacs.d.svg?style=flat]]
+[[https://img.shields.io/github/commit-activity/m/Likhon-baRoy/.emacs.d.svg?style=flat]]
+[[https://img.shields.io/tokei/lines/github/Likhon-baRoy/.emacs.d.svg?style=flat]]
 
 #+begin_quote
 An infinite number of monkeys typing into GNU Emacs would never make a good program.\\
