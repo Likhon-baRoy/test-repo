@@ -70,17 +70,16 @@ This beautifully written *About EMACS* section credits to [[https://github.com/r
 
 ** About README
 Welcome to the /Emacs Of Dreams/. Wait no, I meant the *Emacs Operating System*. \\
-This repository contains my personal configuration for *GNU Emacs* that I use on
-the daily and port around from system to system with me.
+This repository contains my personal configuration for *GNU Emacs* that I use on the daily and port around from system to system with me. This is an example of a fully custom Emacs configuration that you can use as inspiration when building your own!
 
 The configuration depends on [[file:init.el][init.el]], [[https://github.com/Likhon-baRoy/.emacs.d/tree/main/my-lisp][my-lisp]](dir) and [[file:early-init.el][early-init.el]] (sets up a few initial GUI settings), bootstraps [[https://github.com/jwiegley/use-package][use-package]]. and loads [[file:init.el][init.el]], which is where the majority of the configuration magic happens.
 
 This is an Emacs distribution that aims to enhance the default Emacs experience. It alters a lot of the default settings, bundles of additional packages and adds its own core library to the mix. The final product offers an easy to use Emacs configuration for Emacs newcomers and lots of additional power for Emacs power users.
 
-It's able to run on /Windows/, /GNU Linux/ and /macOS/. It is compatible *ONLY with GNU Emacs 26.1 and above*. In general you're advised to always run with the latest stable release - currently *28.2*.
+It's able to run on *GNU/Linux*, *macOS* and *Windows*. It is compatible ONLY with *GNU Emacs 27.1* and *Above*. In general you're advised to always run with the latest stable release - currently *28.2*.
 
 * Screenshots
-/Here are some demo.../ \\
+Here are some demo... \\
 
 /A dashboard on startup can clean my mind/.😌
 [[./screenshots/ss-1.png]]
