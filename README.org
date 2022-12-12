@@ -319,6 +319,7 @@ This beautifully written *Replace CapsLock with CTRL* section credits to [[https
 #+html: <a href="../../issues/new">:speech_balloon: <b>Ask a question</b></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="../../issues?q=is%3Aissue+is%3Aclosed+sort%3Aupdated-desc">:book: <b>Read questions</b></a>
 /I get questions by email, occasionally. This way anyone can read the answer!/
 
+[fn:right]
 [[https://GitHub.com/Likhon-baRoy/.emacs.d][https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg]]
 
 Anything means *anything*. Personal questions. Money. Work. Life. Code.
