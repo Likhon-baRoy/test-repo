@@ -6,6 +6,16 @@
 
 [[https://www.gnu.org/licenses/gpl-3.0.txt][https://img.shields.io/badge/license-GPL_3-green.svg?style=flat&logo=appveyor]]
 [[https://github.com/ellerbrock/open-source-badges/][https://badges.frapsoft.com/os/v1/open-source.png?v=103]]
+
+https://img.shields.io/github/forks/angrybacon/dotemacs.svg?style=flat-square]]
+[[https://img.shields.io/github/stars/angrybacon/dotemacs.svg?style=flat-square]]
+[[https://img.shields.io/github/commit-activity/m/angrybacon/dotemacs.svg?style=flat-square]]
+[[https://img.shields.io/tokei/lines/github/angrybacon/dotemacs.svg?style=flat-square]]
+
+[[https://img.shields.io/badge/arch-yes-success.svg?logo=archlinux&style=flat-square]]
+[[https://img.shields.io/badge/macos-yes-success.svg?logo=apple&style=flat-square]]
+[[https://img.shields.io/badge/windows-untested-important.svg?logo=windows&style=flat-square]]
+
 #+begin_quote
 An infinite number of monkeys typing into GNU Emacs would never make a good program.\\
 ——— Linus Torvalds
@@ -15,6 +25,7 @@ An infinite number of monkeys typing into GNU Emacs would never make a good prog
 - [[#about][About]]
   - [[#about-readme][About README]]
 - [[#screenshots][Screenshots]]
+- [[#how-to-use-this-configuration][How to Use This Configuration]]
 - [[#installation][Installation]]
   - [[#further-updates][Further Updates]]
   - [[#contribution][Contribution]]
@@ -63,7 +74,7 @@ Welcome to the /Emacs Of Dreams/. Wait no, I meant the *Emacs Operating System*.
 This repository contains my personal configuration for *GNU Emacs* that I use on
 the daily and port around from system to system with me.
 
-The configuration depends on [[file:init.el][init.el]]  and [[file:early-init.el][early-init.el]] (sets up a few initial GUI settings), bootstraps [[https://github.com/jwiegley/use-package][use-package]]. and loads [[file:init.el][init.el]], which is where the majority of the configuration magic happens.
+The configuration depends on [[file:init.el][init.el]], [[https://github.com/Likhon-baRoy/.emacs.d/tree/main/my-lisp][my-lisp]](dir) and [[file:early-init.el][early-init.el]] (sets up a few initial GUI settings), bootstraps [[https://github.com/jwiegley/use-package][use-package]]. and loads [[file:init.el][init.el]], which is where the majority of the configuration magic happens.
 
 This is an Emacs distribution that aims to enhance the default Emacs experience. It alters a lot of the default settings, bundles of additional packages and adds its own core library to the mix. The final product offers an easy to use Emacs configuration for Emacs newcomers and lots of additional power for Emacs power users.
 
@@ -73,31 +84,32 @@ It's able to run on /Windows/, /GNU Linux/ and /macOS/. It is compatible *ONLY w
 /Here are some demo.../ \\
 
 /A dashboard on startup can clean my mind/.😌
-
-[[./image-dired/ss-1.png]]
+[[./screenshots/ss-1.png]]
 
 /Center text in the frame, looks nice ;) and =flycheck= with BitMap-Arrow on the right-fringe/ 😎
-
-[[./image-dired/ss-2.png]]
+[[./screenshots/ss-2.png]]
 
 /default Transparent mod/ 👍🏻
-
-[[./image-dired/ss-3.png]]
+[[./screenshots/ss-3.png]]
 
 /File navigation with Speed-bar./
-
-[[./image-dired/ss-4.png]]
+[[./screenshots/ss-4.png]]
 
 /feel the Org-mode/ :D
-
-[[./image-dired/ss-5.png]]
+[[./screenshots/ss-5.png]]
 
 /Company-mode with yasnippet/ 🔥
-
-[[./image-dired/ss-6.png]]
+[[./screenshots/ss-6.png]]
 
 
 #+html: <p><img alt="GitHub repo size" align="right" src="https://img.shields.io/github/repo-size/Likhon-baRoy/.emacs.d?color=blue&logo=github&style=for-the-badge"></p>
+
+* How to Use This Configuration
+
+This repo is meant to be a companion to the Emacs From Scratch video series, serving as an example of a custom configuration build on top of vanilla Emacs. I give instructions below for how to set it up to try it out, but it isn’t meant to be used as your main configuration! My goal here is to provide a working configuration that you can take inspiration from (and copy from directly).
+
+Just keep in mind that this repo isn’t set up to be used directly as your own configuration! Copy the code to your own dotfiles repository and have fun :)
+
 * Installation
 [[https://GitHub.com/Likhon-baRoy/][http://ForTheBadge.com/images/badges/built-with-swag.svg]]
 
@@ -129,7 +141,7 @@ My heart whelming *Thanks* 🙏🏽 to you guy's 💜, who put all their effort 
 
 - *Uncle Dev* ([[https://github.com/daedreth/UncleDavesEmacs#readme][GitHub]], [[https://www.youtube.com/watch?v=d6iY_1aMzeg&list=PLX2044Ew-UVVv31a0-Qn3dA6Sd_-NyA1n][YouTube]])
 - *Mike Zamansky* ([[https://github.com/zamansky/emacs.dz#readme][GitHub]], [[https://www.youtube.com/watch?v=49kBWM3RQQ8&list=PL9KxKa8NpFxIcNQa9js7dQQIHc81b0-Xg][YouTube]], [[https://cestlaz.github.io/posts/using-emacs-1-setup/][Website]])
-- *Mingde (Matthew) Zeng* ([[https://github.com/MatthewZMD/.emacs.d#readme][GitHub]])
+- *Mingde* (Matthew) *Zeng* ([[https://github.com/MatthewZMD/.emacs.d#readme][GitHub]])
 - *System Crafters* ([[https://www.youtube.com/@SystemCrafters/playlists][YouTube]], [[https://systemcrafters.cc/][Website]], [[https://config.daviwil.com/emacs][Website]])
 - *Protesilaos Stavrou* ([[https://github.com/protesilaos/dotfiles/tree/master/emacs/.emacs.d][GitHub]], [[https://www.youtube.com/@protesilaos/playlists][YouTube]], [[https://protesilaos.com/emacs/dotemacs][Website]])
 
@@ -152,7 +164,7 @@ Also this project relies on the following list of applications:
 - [[http://ctags.sourceforge.net][Exuberant Ctags]] (=ctags=)
 - Install [[https://cmake.org/install/][cmake]], [[https://clang.llvm.org/get_started.html][clang]], [[https://clang.llvm.org/get_started.html][llvm]], [[http://www.gdbtutorial.com/tutorial/how-install-gdb][gdb]] for programming purpose
 - Install [[https://www.jetbrains.com/lp/mono/][JetBrains Mono]] (=font=)
-- Install [[https://github.com/googlefonts/noto-emoji][emoji font]] (*Noto Emoji*) for Linux
+- Install [[https://github.com/googlefonts/noto-emoji][emoji font]] (*Noto Emoji* & =noto-cjk=, /for all the fonts imaginable/) for Linux
 - Install [[https://github.com/domtronn/all-the-icons.el][all-the-icons]] fonts: =M-x all-the-icons-install-fonts=
 - [[https://www.gnu.org/software/global][GNU GLOBAL (=global=)]]
 - [[https://git-scm.com][Git (=git=)]]
@@ -178,7 +190,7 @@ S-TAB (hide-level) - fold the sub sections of the current section.
 #+end_example
 
 * Custom Configurations
-Here is my some personal changes for *Emacs* which comes default with this configuration. Checkout full documentation of Keybindings in [[https://github.com/Likhon-baRoy/org-notes/blob/main/emacs_user-manual.org][Emacs user-manual]].
+Here is my some personal changes for *Emacs* which comes default with this configuration. Checkout full documentation of *Keybindings* in [[https://github.com/Likhon-baRoy/org-notes/blob/main/emacs_user-manual.org][Emacs user-manual]].
 ** Custom key bindings
 
 #+BEGIN_SRC emacs-lisp
