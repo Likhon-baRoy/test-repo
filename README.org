@@ -174,7 +174,10 @@ Also this project relies on the following list of applications:
 - [[https://github.com/BurntSushi/ripgrep][ripgrep (=rg=)]]
 
 * User Guidance
+
 📝 *Note:* (/for beginners/) I'll be using =Ctrl= as =C=, =Alt= as =M=, =Space= as =S= and =BackSpace= as =BS=. \\
+
++ You must wanna see this documentation here: [[https://github.com/Likhon-baRoy/org-notes/blob/main/emacs_user-manual.org][Emacs-user-manual]].
 
 After installation process is done.  Whenever you open a files within Emacs, the whole file will be opened in folding mode.  Which you'll obviously won't see until you find the shortcut key-binding.  There is a default feature for this which called *hs-minor-mode* I just change some default key-bindings for more useful. \\
 
@@ -189,7 +192,7 @@ S-TAB (hide-level) - fold the sub sections of the current section.
 #+end_example
 
 * Custom Configurations
-Here is my some personal changes for *Emacs* which comes default with this configuration. Checkout full documentation of *Keybindings* in [[https://github.com/Likhon-baRoy/org-notes/blob/main/emacs_user-manual.org][Emacs user-manual]].
+Here is my some personal changes for *Emacs* which comes default with this configuration.
 ** Custom key bindings
 
 #+BEGIN_SRC emacs-lisp
