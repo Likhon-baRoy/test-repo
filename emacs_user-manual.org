@@ -13,7 +13,7 @@
 
 * Table of Contents                                                     :TOC:
 
-- Basics
+- [[#basics-of-emacs][Basics of Emacs]]
   - [[#moving-around-on-emacs][Moving around on Emacs]]
   - [[#file-navigation][File Navigation]]
 - [[#modeline][Modeline]]
@@ -38,7 +38,7 @@
 - [[#org][ORG]]
 - [[#spell-checking][Spell Checking]]
 
-* Basics
+* Basics of Emacs
 ** Moving around on Emacs
 
 |------------+-----------------------------------+---------------------------------------------------------|
@@ -55,7 +55,7 @@
 | M-e        | forward-sentence                  | move forward one sentence                               |
 | M-a        | backwards-sentence                | move backwards one sentence                             |
 | M-}        | forward-paragraph                 | move forward one paragraph                              |
-| M={        | backwards-paragraph               | move backwards one paragraph                            |
+| M-{        | backwards-paragraph               | move backwards one paragraph                            |
 | C-v        | scroll-up                         | move forward one screen                                 |
 | M-v        | scroll-down                       | move backward one screen                                |
 | C-x [      | forward-page                      | move forward one page                                   |
@@ -91,10 +91,10 @@
 |-----------+----------------------------------------------|
 | Character | Meaning                                      |
 |-----------+----------------------------------------------|
-| --        | buffer has not been modified                 |
-| **        | buffer has been modified                     |
-| %%        | read only mode; buffer has not been modified |
-| %*        | read only mode; buffer has been modified     |
+| *--*      | buffer has not been modified                 |
+| ****      | buffer has been modified                     |
+| *%%*      | read only mode; buffer has not been modified |
+| *%**      | read only mode; buffer has been modified     |
 |-----------+----------------------------------------------|
 
 * Search
@@ -163,7 +163,6 @@
     the top location.  The global mark ring is updated
     automatically
 * Help Menu
-
 ** Meta Help
 
 |------------+----------------------------------+------------------------------------------------------------------------|
@@ -179,7 +178,6 @@
 | C-h h      | (view-hello-file)                | Display the HELLO file, which lists many languages and characters      |
 | C-h a      | Show commands that match PATTERN |                                                                        |
 | C-h i m    | -                                | go to info and SELECT *m* for menu                                       |
-|            |                                  |                                                                        |
 |------------+----------------------------------+------------------------------------------------------------------------|
 
 PATTERN can be a word, a list of words (separated by spaces), or a regexp (using
