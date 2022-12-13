@@ -91,10 +91,10 @@
 |-----------+----------------------------------------------|
 | Character | Meaning                                      |
 |-----------+----------------------------------------------|
-| *--*      | buffer has not been modified                 |
-| ****      | buffer has been modified                     |
-| *%%*      | read only mode; buffer has not been modified |
-| *%**      | read only mode; buffer has been modified     |
+| =--=      | buffer has not been modified                 |
+| =**=      | buffer has been modified                     |
+| =%%=      | read only mode; buffer has not been modified |
+| =%*=      | read only mode; buffer has been modified     |
 |-----------+----------------------------------------------|
 
 * Search
