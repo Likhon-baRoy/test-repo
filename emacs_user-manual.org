@@ -8,7 +8,7 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://thomasf.github.io/solarized-css/solarized-dark.min.css" />
 
 :DRAWERNAME:
-*NOTE:* /I personally prefer Emacs build-in TUTORIAL first, which is very well documented and easy to understand.
+*NOTE:* /I personally prefer Emacs build-in TUTORIAL first, which is very well documented and easy to understand. \\
 This documentation is still in progress, so you better stick to it. cheers!/ 🍻
 :END:
 
