@@ -265,6 +265,12 @@ C-4 <backspace>
 - C-[f5]
   - toggle (=display-line-numbers-mode-relative=)
 * Window and Frames
+
+
+- C-x 4 f       - to find a file in another window.
+
+- C-x 4 b       - to select a different buffer in another window.
+
 - C-x 5 2
   - to open a new frame
 - C-x 5 f [title of your new frame]
@@ -442,11 +448,11 @@ push to the mark ring so that you can use ~C-u C-SPC~ to return afterwards. This
 includes isearch, so after using C-s to go somewhere, you can easily jump back
 again.
 
-| Shortcut  | Command Invoked       | Description            |
-|-----------|-----------------------|------------------------|
-| `C-x r m` | `bookmark-set`        | Create / set bookmark. |
-| `C-x r b` | `bookmark-jump`       | Open bookmark.         |
-| `C-x r l` | `bookmark-bmenu-list` | List bookmarks.        |
+| Shortcut | Command Invoked     | Description            |
+|----------+---------------------+------------------------|
+| C-x r m  | bookmark-set        | Create / set bookmark. |
+| C-x r b  | bookmark-jump       | Open bookmark.         |
+| C-x r l  | bookmark-bmenu-list | List bookmarks.        |
 
 - DELETE
   - go ot Bookmark and SELECT by pressing ~d~ than to Delete press ~x~
@@ -501,11 +507,6 @@ If you use C-x r j to go to a saved position, but the buffer it was saved from h
 
 - C-x s
   - save-some-buffer, giving the choice which buffer to save or not.
-
-- M-a
-  - runs the command backward-sentence.
-- M-e
-  - runs the command forward-sentence.
 
 - ~M-x~ =eval-region=
 - ~M-x~ =eval-buffer=
@@ -580,24 +581,17 @@ I said  some code
 - C-x r t       - string-rectangle (used to insert any arbitrary text (spaces included) in a selected region.)
 
 %% Let's say you have this block of text and you want to insert 5 spaces in front of all lines.
-
+#+begin_example
 abc
 def
 ghi
-
+#+end_example
 - C-x r t M-5 SPC RET   - That will give the below force indented text.
 #+BEGIN_EXAMPLE
 abc
 def
 ghi
 #+END_EXAMPLE
-
-%% for example, if you wanted a yellow bar 5 pixels wide in insert state and a
-purple-filled box in normal state, you could do the following:
-#+BEGIN_SRC emacs-lisp
-(setq evil-insert-state-cursor '((bar . 5) "yellow")
-evil-normal-state-cursor '(box "purple"))
-#+END_SRC
 
 - IMHO the standard way is:
    1) Go to the top of your buffer.
@@ -608,14 +602,9 @@ evil-normal-state-cursor '(box "purple"))
    6) Press ! to perform all replacements at once.
 
 Explanation of the regular expression:
-
 1) The caret ^ stands for the beginning of line.
 2) The \s- stands for any character designated as space by the current modes syntax table.
 3) The + stands for one or more contiguous matches.
-
-- C-x 4 f       - to find a file in another window.
-
-- C-x 4 b       - to select a different buffer in another window.
 
 * Projectile
 - Simply open any file in the git project using =C-x C-f= and then try running
@@ -655,10 +644,13 @@ Insert integer trough a significant point
 | C-c C-e P x | org-export-dispatch      | Export specific project.                       |
 
 ** org-tempo
-- C-c C-, (org-insert-structure-template)
-for farther explanation, [[https://orgmode.org/manual/Structure-Templates.html#Structure-Templates][go here]]
+- =C-c C-,=
+  =org-insert-structure-template=
 
-also put this in your init.el
+/for farther explanation/, [[https://orgmode.org/manual/Structure-Templates.html#Structure-Templates][go here]].
+
+also put this in your =init.el=.
+
 - (require 'org-tempo)
 
 #+begin_src
