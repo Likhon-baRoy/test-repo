@@ -99,21 +99,19 @@
 
 * Search
 
-|------------+-------------------------+----------------------------------------------------------------------------------|
-| Keystrokes | Command Name            | Action                                                                           |
-|------------+-------------------------+----------------------------------------------------------------------------------|
-| C-s        | isearch-forward         | start incremental search forward by search string,                               |
-|            |                         | also find next occurrence (forward) of search string                             |
-| C-r        | isearch-backward        | start incremental search backward by search string,                              |
-|            |                         | also find next occurrence (backward) of search string                            |
-| C-s C-s    | isearch-repeat-forward  | repeat previous search                                                           |
-| C-r C-r    | isearch-repeat-backward | repeat previous search backward                                                  |
-| C-s C-w    | isearch-yank-word       | start with the word the cursor is on as search string                            |
-| C-s C-y    | isearch-yank-line       | start with the text from cursor position to the end of the line as search string |
-| C-s M-y    | isearch-yank-kill       | start with the text from kill ring as search string                              |
-| M-p        |                         | select PREVIOUS search string                                                    |
-| M-n        |                         | select NEXT search string                                                                             |
-|------------+-------------------------+----------------------------------------------------------------------------------|
+|------------+-------------------------+-----------------------------------------------------------------------------------------------------------|
+| Keystrokes | Command Name            | Action                                                                                                    |
+|------------+-------------------------+-----------------------------------------------------------------------------------------------------------|
+| C-s        | isearch-forward         | start incremental search forward by search string, also find next occurrence (forward) of search string   |
+| C-r        | isearch-backward        | start incremental search backward by search string, also find next occurrence (backward) of search string |
+| C-s C-s    | isearch-repeat-forward  | repeat previous search                                                                                    |
+| C-r C-r    | isearch-repeat-backward | repeat previous search backward                                                                           |
+| C-s C-w    | isearch-yank-word       | start with the word the cursor is on as search string                                                     |
+| C-s C-y    | isearch-yank-line       | start with the text from cursor position to the end of the line as search string                          |
+| C-s M-y    | isearch-yank-kill       | start with the text from kill ring as search string                                                       |
+| M-p        |                         | select PREVIOUS search string                                                                             |
+| M-n        |                         | select NEXT search string                                                                                 |
+|------------+-------------------------+-----------------------------------------------------------------------------------------------------------|
 
 * Mark/Unmark
 |------------+--------------------------+-----------------------------------------|
