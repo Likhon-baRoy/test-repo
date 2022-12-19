@@ -37,7 +37,6 @@ An infinite number of monkeys typing into GNU Emacs would never make a good prog
 - [[#custom-configurations][Custom Configurations]]
   - [[#custom-key-bindings][Custom key bindings]]
   - [[#custom-functions][Custom functions]]
-  - [[#custom-input-methods][Custom input methods]]
 - [[#optional][Optional]]
   - [[#setup-bangla-language-environment][Setup Bangla Language Environment]]
     - [[#requirements][Requirements]]
@@ -264,53 +263,30 @@ Here is my some personal changes for *Emacs* which comes default with this confi
 (global-set-key (kbd "C-c t") 'toggle-transparency)
 #+END_SRC
 
-** Custom input methods
-
-Here's a input method for =Bengali= or =Bangla= language.  Which I used with =Probhat= key-layout.
-#+BEGIN_SRC emacs-lisp
-(setq default-input-method "bengali-probhat")
-(set-fontset-font "fontset-default" 'bengali (font-spec :family "Kalpurush" :size 16))
-
-(defun remove-quail-show-guidance ()
-  "Function for removing guidance."
-  nil)
-(defun remove-quail-completion ()
-  "Function for removing completion."
-  (quail-select-current))
-(defun bn-company-wordfreq ()
-  "Bangla auto-suggestion with company-wordfreq."
-  (interactive)
-  (advice-add 'quail-show-guidance :override #'remove-quail-show-guidance)
-  (advice-add 'quail-completion :override #'remove-quail-completion)
-  (setq ispell-local-dictionary "bengali")
-  (setq-local company-backends '(company-wordfreq))
-  (setq-local company-transformers nil))
-(add-hook 'text-mode-hook (lambda ()
-                            (setq-local company-backends '(company-wordfreq))
-                            (setq-local company-transformers nil)))
-#+END_SRC
 
 * Optional
 ** Setup Bangla Language Environment
-Writing in Bangla using *company-wordfreq*
+Writing in Bangla using *company-wordfreq*.
+
 *** Requirements
 - Install Bangla font [[https://www.freebanglafont.com/download.php?id=656][Kalpurush]]
 
 *** Settings
 You can put this configuration code to you =init.el= file or make an extra separate file and put it in =~/.emacs.d/my-lisp/= directory then Emacs will autoload this file from there.
-/set your keyboard default layout/
+
+set your keyboard default layout to =Probhat= key-layout.
 #+BEGIN_SRC emacs-lisp
   (setq default-input-method "bengali-probhat")
   (set-fontset-font "fontset-default" 'bengali (font-spec :family "Kalpurush" :size 16))
 #+END_SRC
 
-/First we install the following package for auto suggestions of Bangla word./
+Install the following package for auto suggestions of Bangla word.
 #+BEGIN_SRC emacs-lisp
   (use-package company-wordfreq
     :delight " 𝛄")
 #+END_SRC
 
-/We need to the set up the following in the local buffer. This can be done by invoking an interactive function as below./
+We need to the set up the following in the local buffer. This can be done by invoking an interactive function as below.
 #+BEGIN_SRC emacs-lisp
   (defun remove-quail-show-guidance ()
     nil)
@@ -325,7 +301,7 @@ You can put this configuration code to you =init.el= file or make an extra separ
     (setq-local company-transformers nil))
 #+END_SRC
 
-/And let's hook them in Text buffer/
+And let's hook them into Text buffer-mode.
 #+BEGIN_SRC emacs-lisp
   (add-hook 'text-mode-hook (lambda ()
                               (setq-local company-backends '(company-wordfreq))
@@ -336,7 +312,7 @@ You can put this configuration code to you =init.el= file or make an extra separ
 *** Workflow
 - Change the input-method using =C-\=
 - Enable =company-wordfreq= and other changes for a nice experience using =M-x bn-company-wordfreq=
-/Now you can enjoy your *Bangla/Bengali* lang workflow/ :D
+Now you can enjoy your *Bangla/Bengali* lang workflow :D
 * Recommendations
 Here are some general recommendations on Emacs usage that you might find helpful:
 
