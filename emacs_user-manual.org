@@ -706,28 +706,11 @@ Explanation of the regular expression:
 
 ** Enter Numeric values
 Insert integer trough a significant point
-- ~C-10 C-u 0~
-  - /will give =10= zeros after the point./
+- ~C-10~ ~C-u~ ~0~
+  - will give =10= zeros after the point.
 
 - =C-x C-b= =o=
   - open a file in other-window from *Buffer List*
-
-* Projectile
-- Simply open any file in the git project using =C-x C-f= and then try running
-  command ~C-c p f~.
-
-+ Opening a file in a git project will make projectile recognize the project.
-
-- I think your project is indeed considered a project by =projectile= only if you
-  have a =.git= folder in it (did you forget to =git init=?). I'm not seeing one in
-  your case. You can alternatively add a =.projectile= file instead. Everything in
-  that folder containing the =.projectile= file and all subfolders will be
-  considered part of the same project.
-
-* ORG
-This topic =Org= is pretty huge on it's own. So, I made a separate manual for
-=org-mode= and moved everything about =org-mode= there. \\
-Please, check this out here: 👉🏽 [[https://github.com/Likhon-baRoy/org-notes/blob/main/Emacs/org_user-menual.org][ORG-user-manual]].
 
 * Spelling Check
 
@@ -746,3 +729,20 @@ Interface To Spell (Ispell) and On The Fly Spell (Flyspell)
 | -        | flyspell-prog-mode                 | Enable Fly-spell mode for comments and strings only.             |
 | -        | flyspell-buffer                    | Check and correct spelling in the buffer.                        |
 |----------+------------------------------------+------------------------------------------------------------------|
+
+* Projectile
+- Simply open any file in the git project using =C-x C-f= and then try running
+  command ~C-c~ ~p~ ~f~.
+
++ Opening a file in a git project will make projectile recognize the project.
+
+- I think your project is indeed considered a project by =projectile= only if
+  you have a =.git= folder in it (did you forget to =git init=?). I'm not seeing
+  one in your case. You can alternatively add a =.projectile= file
+  instead. Everything in that folder containing the =.projectile= file and all
+  subfolders will be considered part of the same project.
+
+* ORG
+This topic =Org= is pretty huge on it's own. So, I made a separate manual for
+=org-mode= and moved everything about =org-mode= there. \\
+Please, check this out here: 👉🏽 [[https://github.com/Likhon-baRoy/org-notes/blob/main/Emacs/org_user-menual.org][ORG-user-manual]].
