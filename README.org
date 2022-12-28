@@ -149,7 +149,7 @@ Just keep in mind that this repo isn’t set up to be used directly as your own 
 6. In your favorite browser, =Ctrl-f Prerequisite= through this README and follow the *Prerequisite* instructions.
 7. Restart Emacs and Start using your *Dream Emacs*! :tada:
 
-** Why this Config?
+** Why this Config ?
 
    There is absolutely no reason for you to use this config, it would
    be like first time 🏊 swimmer, who mostly likely drown with
