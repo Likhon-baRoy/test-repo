@@ -24,33 +24,6 @@ An infinite number of monkeys typing into GNU Emacs would never make a good prog
 ——— Linus Torvalds
 #+end_quote
 
-* Table of Contents                                                     :TOC:
-- [[#about][About]]
-  - [[#about-readme][About README]]
-- [[#screenshots][Screenshots]]
-- [[#how-to-use-this-configuration][How to Use This Configuration]]
-- [[#installation][Installation]]
-  - [[#why-this-config][Why this Config?]]
-  - [[#troubleshooting][Troubleshooting]]
-  - [[#further-updates][Further Updates]]
-  - [[#contribution][Contribution]]
-  - [[#special-thanks][Special Thanks]]
-- [[#prerequisites][Prerequisites]]
-  - [[#user-information][User Information]]
-  - [[#install-packages][Install Packages]]
-- [[#user-guidance][User Guidance]]
-- [[#custom-configurations][Custom Configurations]]
-  - [[#custom-key-bindings][Custom key bindings]]
-  - [[#custom-functions][Custom functions]]
-- [[#optional][Optional]]
-  - [[#setup-bangla-language-environment][Setup Bangla Language Environment]]
-    - [[#requirements][Requirements]]
-    - [[#settings][Settings]]
-    - [[#workflow][Workflow]]
-- [[#recommendation][Recommendation]]
-  - [[#replace-capslock-with-ctrl][Replace CapsLock with CTRL]]
-- [[#ask-me-anything][Ask Me Anything]]
-
 * About
 Emacs changes how you *think* about programming.
 
@@ -149,7 +122,7 @@ Just keep in mind that this repo isn’t set up to be used directly as your own 
 6. In your favorite browser, =Ctrl-f Prerequisite= through this README and follow the *Prerequisite* instructions.
 7. Restart Emacs and Start using your *Dream Emacs*! :tada:
 
-** Why this Config ?
+** Why this Config?
 
    There is absolutely no reason for you to use this config, it would
    be like first time 🏊 swimmer, who mostly likely drown with
