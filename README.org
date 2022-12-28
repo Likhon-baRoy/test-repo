@@ -4,7 +4,6 @@
 #+DATE:   2022 Nov 19
 #+STARTUP: overview
 #+TAGS:   emacs
-#+OPTIONS: num:nil toc:1
 #+DESCRIPTION: My Emacs config diaries!
 
 #+html: <p><img alt="GPLv3 Software" align="right" src="https://www.gnu.org/graphics/gplv3-with-text-136x68.png"></p>
