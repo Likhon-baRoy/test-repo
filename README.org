@@ -2,6 +2,7 @@
 #+AUTHOR: Likhon Barai
 #+EMAIL:  likhonhere007@gmail.com
 #+DATE:   2022 Nov 19
+#+LANGUAGE: en
 #+STARTUP: overview
 #+TAGS:   emacs
 #+DESCRIPTION: My Emacs config diaries!
@@ -22,6 +23,33 @@
 An infinite number of monkeys typing into GNU Emacs would never make a good program.\\
 ——— Linus Torvalds
 #+end_quote
+
+* Table of Contents                                                     :TOC:
+- [[#about][About]]
+  - [[#about-readme][About README]]
+- [[#screenshots][Screenshots]]
+- [[#how-to-use-this-configuration][How to Use This Configuration]]
+- [[#installation][Installation]]
+  - [[#why-this-config][Why this Config?]]
+  - [[#troubleshooting][Troubleshooting]]
+  - [[#further-updates][Further Updates]]
+  - [[#contribution][Contribution]]
+  - [[#special-thanks][Special Thanks]]
+- [[#prerequisites][Prerequisites]]
+  - [[#user-information][User Information]]
+  - [[#install-packages][Install Packages]]
+- [[#user-guidance][User Guidance]]
+- [[#custom-configurations][Custom Configurations]]
+  - [[#custom-key-bindings][Custom key bindings]]
+  - [[#custom-functions][Custom functions]]
+- [[#optional][Optional]]
+  - [[#setup-bangla-language-environment][Setup Bangla Language Environment]]
+    - [[#requirements][Requirements]]
+    - [[#settings][Settings]]
+    - [[#workflow][Workflow]]
+- [[#recommendation][Recommendation]]
+  - [[#replace-capslock-with-ctrl][Replace CapsLock with CTRL]]
+- [[#ask-me-anything][Ask Me Anything]]
 
 * About
 Emacs changes how you *think* about programming.
@@ -52,9 +80,6 @@ This beautifully written *About EMACS* section credits to [[https://github.com/r
 
 ** About README
 
-*BEWARE:* AUTHOR does'nt know much *elisp* and suffer from
-*parenthesiophobia*, but couldn't stop tinker around.
-
 Welcome to the /Emacs Of Dream/. Wait no, I meant the *Emacs Operating System*. \\
 This repository contains my personal configuration for *GNU Emacs* that I use on the daily and port around from system to system with me. This is an example of a fully custom Emacs configuration that you can use as inspiration when building your own!
 
@@ -70,23 +95,29 @@ It's able to run on *GNU/Linux*, *macOS* and *Windows*. It is compatible ONLY wi
 Here are some demo... \\
 
 /A dashboard on startup can clean my mind/.😌
+#+BEGIN_CENTER
 [[./screenshots/ss-1.png]]
-
+#+END_CENTER
 /Center text in the frame, looks nice ;) and =flycheck= with BitMap-Arrow on the right-fringe/ 😎
+#+BEGIN_CENTER
 [[./screenshots/ss-2.png]]
-
+#+END_CENTER
 /default Transparent mode/ 👍🏻
+#+BEGIN_CENTER
 [[./screenshots/ss-3.png]]
-
+#+END_CENTER
 /File navigation with Speed-bar./
+#+BEGIN_CENTER
 [[./screenshots/ss-4.png]]
-
+#+END_CENTER
 /feel the Org-mode/ :D
+#+BEGIN_CENTER
 [[./screenshots/ss-5.png]]
-
+#+END_CENTER
 /Company-mode with yasnippet/ 🔥
+#+BEGIN_CENTER
 [[./screenshots/ss-6.png]]
-
+#+END_CENTER
 
 #+html: <p><img alt="GitHub repo size" align="right" src="https://img.shields.io/github/repo-size/Likhon-baRoy/.emacs.d?color=blue&logo=github&style=for-the-badge"></p>
 

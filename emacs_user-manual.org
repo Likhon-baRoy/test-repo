@@ -103,6 +103,7 @@ General Shortcuts
 | C-x s      | save-some-buffer         | giving the choice which buffer to save or not.                      |
 | C-x C-w    | write-file (Rename-file) | write buffer contents (save buffer as a new file)                   |
 | C-x C-c    | save-buffers-kill-emacs  | Offer to save each buffer, then kill Emacs                          |
+| C-z        | suspend-emacs            | Suspend Emacs temporarily                                           |
 |------------+--------------------------+---------------------------------------------------------------------|
 
 * Modeline
@@ -134,65 +135,52 @@ General Shortcuts
 | M-n        |                         | select NEXT search string                                                                                 |
 |------------+-------------------------+-----------------------------------------------------------------------------------------------------------|
 
-* Mark, region and kill ring (Point, mark, and region)
-• Mark and region
-+ Mark is a special text position set by the command =C-Space=
-+ Region is the text between the point (current cursor) and the mark
-+ Flexibility: set mark once and adjust the region by moving the cursor
+* Mark, region and kill-ring
 
-• Kill ring
-+ The greedy clipboard of Emacs
-+ M-w, C-w, C-y: copy, cut, yank (paste)
-+ M-y: paste the previously copied/cut texts
-+ C-k, M-d, C-Backspace, C-Del, . . . store deleted texts into kill ring
-
-|------------+--------------------------+--------------------------------------------------|
-| Keystrokes | Command Name             | Action                                           |
-|------------+--------------------------+--------------------------------------------------|
-| C-@/C-SP   | set-mark-command         | mark the beginning (or end) of a region          |
-| C-x C-x    | exchange-point-and-mark  | exchange location of cursor and mark             |
-| M-h        | mark-paragraph           | mark paragraph                                   |
+|------------+--------------------------+------------------------------------------------|
+| Keystrokes | Command Name             | Action                                         |
+|------------+--------------------------+------------------------------------------------|
+| C-@/C-SP   | set-mark-command         | mark the beginning (or end) of a region        |
+| C-x C-x    | exchange-point-and-mark  | exchange location of cursor and mark           |
+| M-h        | mark-paragraph           | mark paragraph                                 |
 | M-w        | kill-region-save         | copy the region (so it can be pasted with =C-y=) |
-| C-x C-p    | mark-page                | mark the page                                    |
-| C-x h      | mark-whole-buffer        | mark buffer                                      |
-| M-@        | set mark after next word | do not move point(cursor)                        |
-| ESC n M-@  | "   " more than one word | use a prefix argument(n)                         |
-|------------+--------------------------+--------------------------------------------------|
+| C-x C-p    | mark-page                | mark the page                                  |
+| C-x h      | mark-whole-buffer        | mark buffer                                    |
+| M-@        | set mark after next word | do not move point(cursor)                      |
+| ESC n M-@  | "   " more than one word | use a prefix argument(n)                       |
+|------------+--------------------------+------------------------------------------------|
 
 ** make cursor jump back to the previous position
+
 - C-SPC C-SPC
-  -  In Emacs you can save the position of the cursor by pressing ~C-space C-space~.
-  - set mark (activates and then deactivates region) pushes the
-    current position to the mark ring (without leaving it active).
+  - set mark (activates and then deactivates region) pushes the current position
+    to the mark ring (without leaving it active).
+  - Emacs let you save the position of the cursor by pressing ~C-space C-space~.
 
 - C-u C-SPC
-  - When you are in another part of the document, jump back with
-    ~C-u C-space~.
-  - move to previous mark pops the mark ring, jumping to the
-    previous position. You can use this repeatedly to navigate
-    through the entire ring.
+  - When you are in another part of the document, jump back with ~C-u C-space~.
+  - move to previous mark pops the mark ring, jumping to the previous
+    position. You can use this repeatedly to navigate through the entire ring.
 
-- Exchange point and mark
-- C-x C-x
-  - =exchange-point-and-mark= which is very useful for jumping between two locations. It also activates the mark-or-region, use =C-SPC= to clear the highlighting.
+** Exchange point and mark
 
-- C-x C-x
-  - exchange-point-and-mark
+- C-x C-x (=exchange-point-and-mark=)
+  - Which is very useful for jumping between two locations. It also activates
+    the =mark-or-region=, use =C-SPC= to clear the highlighting.
 
-  - Put the mark where point is now, and point where the
-    mark is now.  This command works even when the mark is
-    not active, and it reactivates the mark.
+  - Put the mark where point is now, and point where the mark is now.  This
+    command works even when the mark is not active, and it reactivates the mark.
 
-  - If Transient Mark mode is on, a prefix ARG deactivates
-    the mark if it is active, and otherwise avoids
-    reactivating it.  If Transient Mark mode is off, a
-    prefix ARG enables Transient Mark mode temporarily.
+  - If Transient Mark mode is on, a prefix ARG deactivates the mark if it is
+    active, and otherwise avoids reactivating it.  If Transient Mark mode is
+    off, a prefix ARG enables Transient Mark mode temporarily.
 
-- C-x C-@ and C-x C-SPC
+** Block editing
+- =C-x C-@= */* =C-x C-SPC=
 
-  - (pop-global-mark) Pop off global mark ring and jump to
-    the top location.  The global mark ring is updated
-    automatically
+  - (pop-global-mark) Pop off global mark ring and jump to the top location.
+    The global mark ring is updated automatically
+
 * Getting Help
 ** Meta Help
 The help system is simple. Type =C-h= (or =F1=) and follow the directions. If you are a first-time user, type =C-h= =t= for TUTORIAL.
@@ -203,12 +191,13 @@ The help system is simple. Type =C-h= (or =F1=) and follow the directions. If yo
 | C-h t      | help-with-tutorial      | start Emacs TUTORIAL                                                   |
 | C-h ?      | help-for-help           | runs the command help-for-help                                         |
 | C-h C-h    | help-for-help           | -                                                                      |
-| C-h C-a    | about-emacs             | Display the ~*About GNU Emacs*~ buffer.                                                                     |
+| C-h C-a    | about-emacs             | Display the ~*About GNU Emacs*~ buffer.                                  |
 | C-h l      | view-lossage            | Display last few input keystrokes and the commands run.                |
 | C-h m      | describe-mode           | help information for the current buffers modes                         |
 | C-h k      | describe-key            | gives online help for a given keystroke sequence                       |
 | C-h f      | describe-function       | Display the full documentation of FUNCTION                             |
 | C-h x      | describe-command        | help information for a command (a function available using =M-x=).       |
+| C-h b      | describe-bindings       | showing a list of all defined keys, and their definitions.             |
 | C-h c      | describe-key-briefly    | print the name of the functions KEY-LIST invokes                       |
 | C-h w      | where-is                | Print message listing key sequences that invoke the command DEFINITION |
 | C-h h      | (view-hello-file)       | display the HELLO file, which lists many languages and characters      |
@@ -279,6 +268,10 @@ C-4 <backspace>
   - Redo
 - C-g C-/
   - (undo-redo) REDO.
+
+- =M-x= =revert-buffer=
+  - If you want to undo all-changes made science you last saved the file.
+
 * Tweaks
 ** switch themes
 - C-c T
@@ -289,22 +282,71 @@ C-4 <backspace>
   - toggle ON/OFF transparency.
 - C-[f5]
   - toggle (=display-line-numbers-mode-relative=)
-* Buffers, Windows and Frames
+* Advance Editing
 
+** Text conversion and transposition
+
+- Text conversion and transposition
++ M-l, M-u, M-c: lowercase, uppercase, capitalize first character
++ C-t, M-t, C-M-t, C-x C-t: transpose character, word, expression, line
+
+|------------+----------------------------------------------|
+| Keystrokes | Description                                  |
+|------------+----------------------------------------------|
+| M-l        | change following word to lowercase           |
+| M-u        | change following word to uppercase           |
+| M-c        | change following word initial letter capital |
+| M-- l      | change previous word to lowercase            |
+| M-- u      | change previous word to uppercase            |
+| M-- c      | change previous word initial letter capital  |
+| C-t        | Transpose two adjacent characters            |
+| M-t        | Transpose two adjacent word                  |
+| C-M-t      | Transpose two adjacent expression            |
+| C-x C-t    | Transpose two adjacent consecutive lines     |
+|------------+----------------------------------------------|
+
+* Buffers, Windows and Frames
 ** Emacs Buffer
 - The Emacs object containing text
 - Buffer *!=* file: a file can be opened in multiple buffers
 - =C-x= =C-f=, =C-x= =C-b=, =C-x= =k=: open file, switch buffer, kill buffer
 
 ** Emacs Window
+
 - The Emacs object showing a buffer
 - Emacs' window != window in Linux/Windows (Emacs calls it /frame/)
 - C-x 0, 1, 2, 3: delete, maximize, split horizontally/vertically
 - C-x {, }, ^, _: shrink, enlarge horizontally/vertically
 
-- C-x 4 f       - to find a file in another window.
+|-----------------+-------------------------------------------|
+| Keystrokes      | Description                               |
+|-----------------+-------------------------------------------|
+| C-x 0           | Delete the selected window                |
+| C-x 1           | Delete all windows except selected window |
+| C-x 2           | split selected window vertically          |
+| C-x 3           | split selected window horizontally        |
+| C-x o           | move cursor to the next(other) window     |
+| C-x }           | make selected window wider                |
+| C-x {           | make selected window narrower             |
+| C-x ^           | make selected window larger               |
+| =shrink-window= | make selected window smaller              |
+|-----------------+-------------------------------------------|
 
-- C-x 4 b       - to select a different buffer in another window.
+|---------------+---------------------------------------------------------|
+| Keystrokes    | Description                                             |
+|---------------+---------------------------------------------------------|
+| C-x b         | Display a different buffer in selected window           |
+| C-x b         | Create a new buffer in selected window                  |
+| C-x 4 b       | Display a different buffer in next window               |
+| =C-x C-b= =o= | open a file in other-window from *Buffer List*          |
+| C-x 4 C-o     | same as(~C-x~ ~4~ ~b~) but don't change selected window |
+| C-x C-b       | Display a list of all buffers                           |
+| C-x k         | kill (delete) a buffer                                  |
+| C-x 4 C-f     | read contents of file into next window                  |
+| C-x 4 f       | same as (C-x 4 C-f)                                     |
+| C-x 4 r       | same as (C-x 4 C-f), but in read-only mode              |
+|---------------+---------------------------------------------------------|
+*Note:* Use =C-x= =b= for creating a new buffer only when you don't want to save.
 
 ** Emacs Frame
 - C-x 5 2
@@ -426,6 +468,86 @@ It'll reverse the matching terms. So instead of matching items, it do reverse of
 Enter on eshell:
 - C-!
 
+*** Command History and Prompt Key Bindings
+
+Eshell comes with a feature-rich command history facility.  Because Eshell does not use comint-mode it does not have all the history features available to it, but most of the common ones do exist.
+
+- M-r / M-s
+  - Search backwards or forwards for a command by regexp
+- M-p / M-n
+  - Goes backwards or forwards in the command history list
+- C-c C-p / C-c C-n
+  - Jump to the previous or next command prompt in Eshell
+- C-c M-r / C-c M-s
+  - Jumps to the previous or next command that shares the command currently used as input. So it jumps to other instances of the command foo if that is the current input.
+- C-c C-o
+  - Kills the output of the previous command.
+- C-a / C-e
+  - Move to the beginning or end of line.
+
+    Unfortunately, the search-as-you-type history search in M-x shell (bound to M-r) is not implemented in Eshell.
+
+Because I program a lot, I tend to use M-m instead of C-a to move to the beginning of the line. M-m skips indentation and moves to the first non-whitespace char, unlike C-a.
+
+That command does not work in Eshell, for obvious reasons, but you can rebind it to the same key as C-a:
+
+#+BEGIN_SRC emacs-lisp
+  (define-key eshell-mode-map (kbd "M-m") 'eshell-bol)
+#+END_SRC
+History Interaction
+
+You can rewrite previous commands found in Eshell’s history. The syntax is similar to what you find in bash, but it’s just a subset of the most common features. It’s probably easier to refer you to the bash info manual for detailed information on how the history interaction works. I’ve included a small table below that describes most of the history syntax Eshell supports.
+
+You may also want to read my article on Shell & Comint Secrets: History commands. Although it concerns comint-mode-derived things, it’s useful to know about anyway.
+
+- =!!=
+  - Repeats the last command
+- =!ls=
+  - Repeats the last command beginning with ls
+- =!?ls=
+  - Repeats the last command containing ls
+- =!ls:n=
+  - Extract the nth argument from the last command beginning with ls
+- =!ls<tab>=
+  - Using pcomplete, show completion results matches ls
+- =^old^new=
+  - Quick substitution. Using the last command, replaceold with new and run it again. Appears to be buggy.
+- =$_=
+  - Returns the last parameter in the last executed command.
+
+Eshell also has some support for bash history modifiers (like !!:s/old/new/) and the bash reference on history interaction would be a good place to brush up on that.
+Commandline Interaction
+The Eshell Prompt
+
+You can customize the Eshell prompt by modifying eshell-prompt-function, a variable that takes a function that defines what the prompt should contain. By relegating prompt configuration to elisp you can do just about anything you like with it. The only problem is, of course, that Eshell will need to be told what the prompt “looks” like, so you must also edit the variable eshell-prompt-regexp so Eshell knows what the prompt is.
+
+Instead of going to the trouble of changing it yourself, you can give the package Eshell prompt extras a try.
+The Command Line
+
+You can use \ to escape newlines and it supports rudimentary multi-line input that way.
+
+Another way of doing multi-line literal strings is with single quotes: begin a single quote and hit enter, and you are free to enter text until the closing quote delimiter is encountered. If you use double quotes Eshell will expand subshell commands and do variable expansion. In this sense it’s quite similar to bash, though without the support for bash heredocs.
+
+Due to the way Eshell works, you can even go back and modify the text you entered, in quotes.
+Useful Keybindings
+
+Eshell comes equipped with a couple of quality-of-life improvements that make interacting with Emacs and Eshell a lot easier.
+
+C-c M-b
+
+    Inserts the printed buffer name at point
+C-c M-i
+
+    Inserts the printed process name at point
+C-c M-v
+
+    Inserts an environment variable name at point
+C-c M-d
+
+    Toggles between direct input and delayed input (send on RET).
+
+    Useful for some programs that don’t work correctly with buffered input.
+
 ** Shell History Ring
 
 - M-p / C-UP
@@ -450,6 +572,27 @@ Enter on eshell:
 
 - C-h i m emacs RET - guide to learning Emacs Lisp for non-programmers for
   reference. * The Emacs Lisp Reference *
+* Emacs-client
+
+An Emacs server creates a special emacs process that listens on a socket for connecting to it. This way the initialisation is already done before you connect to it and all configurations are already loaded. This is the actual "slow" part of emacs. And is a bit similar to starting python, which also needs to load its libraries at start.
+
+With the emacs server running, you can connect to it using the emacsclient program.
+
+#+BEGIN_SRC sh
+  alias vim='emacsclient -nw'
+#+END_SRC
+
+** What is so cool about the emacs server?
+
+Saving a lot of response time and making working with emacs feel much faster is the obvious advantage. However, there is a much bigger one:
+
+With the emacs server, you can connect to it from the terminal and X Window. Because the emacs server also manages the buffers ("open files" for non-emacs users), you can view the same open file from the terminal or an x window.
+
+Emacs does "chunk-wise" completion of these strings, too? For example,
+ M-x j-p-p-b <tab>
+completes to
+ M-x json-pretty-print-buffer
+
 * SEXPS
 
 Selecting words or sexps without moving the cursor.
