@@ -23,17 +23,23 @@ which is very well documented and easy to understand. In this document I'm use
   - [[#files][Files]]
 - [[#modeline][Modeline]]
 - [[#search][Search]]
-- [[#mark/unmark][Mark/Unmark]]
+  - [[#search-&-replace][Search & Replace]]
+- [[#mark,-region-and-kill-ring][Mark, region and kill-ring]]
 - [[#getting-help][Getting Help]]
 - [[#killing-and-delete][Killing and Deleting]]
 - [[#undo/redo][Undo/Redo]]
 - [[#tweaks][Tweaks]]
 - [[#window-and-frames][Window and Frames]]
+  - [[#emacs-buffer][Emacs Buffer]]
+  - [[#emacs-window][Emacs Window]]
+  - [[#emacs-frame][Emacs Frame]]
 - [[#repeat-command][Repeat Command]]
 - [[#build-in-programs][Build in Programs]]
   - [[#dired][Dired]]
   - [[#eww][eww]]
 - [[#shells][Shells]]
+  - [[#eshell][Eshell]]
+- [[#emacs-client][Emacs-client]]
 - [[#sexps][SEXPS]]
 - [[#fold/unfold-blocks][Fold/Unfold Blocks]]
 - [[#bookmarks][Bookmarks]]
@@ -41,9 +47,9 @@ which is very well documented and easy to understand. In this document I'm use
 - [[#keyboard-macros][Keyboard Macros]]
 - [[#miscellaneous][Miscellaneous]]
   - [[#enter-numeric-values][Enter Numeric values]]
+- [[#Spelling-check][Spelling Check]]
 - [[#projectile][Projectile]]
 - [[#org][ORG]]
-- [[#Spelling-check][Spelling Check]]
 
 * Basics of Emacs
 ** Moving Around in the Buffer
@@ -327,22 +333,25 @@ The help system is simple. Type =C-h= (or =F1=) and follow the directions. If yo
 + M-l, M-u, M-c: lowercase, uppercase, capitalize first character
 + C-t, M-t, C-M-t, C-x C-t: transpose character, word, expression, line
 
-|------------+-----------------------------------------------------------------|
-| Keystrokes | Description                                                     |
-|------------+-----------------------------------------------------------------|
-| M-l        | change following word to lowercase                              |
-| M-u        | change following word to uppercase                              |
-| M-c        | change following word initial letter capital                    |
-| M-- l      | change previous word to lowercase                               |
-| M-- u      | change previous word to uppercase                               |
-| M-- c      | change previous word initial letter capital                     |
-| C-x C-l    | Convert the region to lower case                                |
-| C-x C-u    | Convert the region to upper case                                |
-| C-t        | Transpose two adjacent characters and move point forward by one |
-| M-t        | Transpose two adjacent word                                     |
-| C-M-t      | Transpose two adjacent expression                               |
-| C-x C-t    | Transpose two adjacent consecutive lines                        |
-|------------+-----------------------------------------------------------------|
+|--------------+-----------------------------------------------------------------|
+| Keystrokes   | Description                                                     |
+|--------------+-----------------------------------------------------------------|
+| M-l          | change following word to lowercase                              |
+| M-u          | change following word to uppercase                              |
+| M-c          | change following word initial letter capital                    |
+| M-- l        | change previous word to lowercase                               |
+| M-- u        | change previous word to uppercase                               |
+| M-- c        | change previous word initial letter capital                     |
+| C-x C-l      | Convert the region to lower case                                |
+| C-x C-u      | Convert the region to upper case                                |
+| C-t          | Transpose two adjacent characters and move point forward by one |
+| M-t          | Transpose two adjacent word                                     |
+| C-M-t        | Transpose two adjacent expression                               |
+| C-x C-t      | Transpose two adjacent consecutive lines                        |
+| C-u 2 M-z e  | delete all characters to the 2nd occurrence of =e=                |
+| M-- M-z e    | delete all characters to the previous occurrence of =e=           |
+| C-u -4 M-z e | delete all characters to the 4th previous occurrence of =e=       |
+|--------------+-----------------------------------------------------------------|
 
 ** Recursive Editing
 
