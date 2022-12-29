@@ -108,6 +108,10 @@ General Shortcuts
   | =C-r=       | View the specific file                     |
   | =C-h=       | Display help information                   |
   |-----------+--------------------------------------------|
+If you try to Quit when there are still files that are not Saved, Emacs will ask
+you to confirm your intentions.  You'll see a message like:
+
+=Modified buffer exist; exist anyway?(yes/no)=
 
 * Modeline
 
@@ -134,9 +138,60 @@ General Shortcuts
 | C-s C-w    | isearch-yank-word       | start with the word the cursor is on as search string                                                     |
 | C-s C-y    | isearch-yank-line       | start with the text from cursor position to the end of the line as search string                          |
 | C-s M-y    | isearch-yank-kill       | start with the text from kill ring as search string                                                       |
-| M-p        |                         | select PREVIOUS search string                                                                             |
-| M-n        |                         | select NEXT search string                                                                                 |
+| M-p        | previous-search-string  | select PREVIOUS search string                                                                             |
+| M-n        | next-search-string      | select NEXT search string                                                                                 |
+| M-s w      | isearch-forward-word    | start forward incremental Word search.                                                                    |
+| M-s w C-r  | isearch-backward-word   | start backward incremental Word search.                                                                   |
+| M-C-s      | isearch-forward-regexp  | start forward incremental REGEXP search.                                                                  |
+| M-C-r      | isearch-backward-regexp | start backward incremental REGEXP search.                                                                 |
 |------------+-------------------------+-----------------------------------------------------------------------------------------------------------|
++ Lower-case on searching is: (Case-Insensitive)
++ Upper-case on searching is: (Case-Sensitive)
+
+** Search & Replace
+
+|-------------+------------------------+-------------------------------------------|
+| Keystrokes  | Command Name           | Description                               |
+|-------------+------------------------+-------------------------------------------|
+| M-%         |                        | Query: search and replace                 |
+| M-C-%       |                        | Query: search and replace (REGEXP)        |
+| M-x         | replace-string         | No query: search and replace              |
+| M-x         | replace-regexp         | No query: search and replace (REGEXP)     |
+| C-x ESC ESC | repeat-complex-command | Edit and re-evaluate last complex command |
+| M-p         |                        | to see previous                           |
+| M-n         |                        | to see next                               |
+|-------------+------------------------+-------------------------------------------|
+
+* Regular Expression
+
+Basic character you can use to create a regular expression.
+|-----------+---------------------------------------------------------------------------------------------------------|
+| Character | Description                                                                                             |
+|-----------+---------------------------------------------------------------------------------------------------------|
+| (char)    | any regular character matches itself.                                                                   |
+| .         | match any single character except =RET= and (like *?* in file name).                                        |
+| *         | match zero or more of the preceding char.                                                               |
+| +         | match one or more of the preceding char.                                                                |
+| ?         | match exactly zero or more of the preceding char.                                                       |
+| ^         | match the beginning of a line.                                                                          |
+| $         | match the end of a line.                                                                                |
+| \<        | match the beginning of a word.                                                                          |
+| \>        | match the end of a word.                                                                                |
+| \b        | match the beginning or end of a word.                                                                   |
+| \B        | match anywhere not at the beginning or end of a word.                                                   |
+| \d        | matches any single digit(0-9).                                                                          |
+| \D        | matches any char but a digit.                                                                           |
+| \`        | match the beginning of the buffer.                                                                      |
+| \'        | match the end of the buffer.                                                                            |
+| \(char)   | quotes a special character.                                                                             |
+| []        | match one of the enclosed characters.                                                                   |
+| [^ ]      | match any character that is not enclosed.                                                               |
+| \s        | match any whitespace character, space, a newline, a tab, a carriage, return, a formfeed or a backspace. |
+| \S         | matches any char except whitespace.                                                                     |
+| \w        | matches any "word" char (upper-lower letters, digit, underscore).                                       |
+| \W        | matches any char but not these (upper-lower letters, digit, underscore).                                |
+|-----------+---------------------------------------------------------------------------------------------------------|
+*e.g.* search for the characters (Welcome) at the beginning of a line, press =M-C-s= and type =^Welcome=.
 
 * Mark, region and kill-ring
 
@@ -362,11 +417,15 @@ C-4 <backspace>
   - to go to another frame
 
 * Repeat Command
-- C-x z
 
-- C-u C-n C-x z z z z     - next-line CHAIN
-
-- C-/ C-x z z z z         - UNDO-CHAIN
+|-------------+------------------------+--------------------------------------------|
+| Keystrokes  | Command Name           | Description                                |
+|-------------+------------------------+--------------------------------------------|
+| C-x z       | repeat                 | Repeat most recently executed command.     |
+| C-x ESC ESC | repeat-complex-command | Edit and re-evaluate last complex command. |
+| M-p         |                        | to see previous                            |
+| M-n         |                        | to see next                                |
+|-------------+------------------------+--------------------------------------------|
 
 * Build in Programs
 You can quit any Emacs build-in-program by pressing =q=.
@@ -693,37 +752,6 @@ If you use C-x r j to go to a saved position, but the buffer it was saved from h
 - C-x r C-@
   - (point-to-register REGISTER &optional ARG)
 
-* Regular Expression
-
-Basic character you can use to create a regular expression.
-|-----------+---------------------------------------------------------------------------------------------------------|
-| Character | Description                                                                                             |
-|-----------+---------------------------------------------------------------------------------------------------------|
-| (char)    | any regular character matches itself.                                                                   |
-| .         | match any single character except =RET= and (like *?* in file name).                                        |
-| *         | match zero or more of the preceding char.                                                               |
-| +         | match one or more of the preceding char.                                                                |
-| ?         | match exactly zero or more of the preceding char.                                                       |
-| ^         | match the beginning of a line.                                                                          |
-| $         | match the end of a line.                                                                                |
-| \<        | match the beginning of a word.                                                                          |
-| \>        | match the end of a word.                                                                                |
-| \b        | match the beginning or end of a word.                                                                   |
-| \B        | match anywhere not at the beginning or end of a word.                                                   |
-| \d        | matches any single digit(0-9).                                                                          |
-| \D        | matches any char but a digit.                                                                           |
-| \`        | match the beginning of the buffer.                                                                      |
-| \'        | match the end of the buffer.                                                                            |
-| \(char)   | quotes a special character.                                                                             |
-| []        | match one of the enclosed characters.                                                                   |
-| [^ ]      | match any character that is not enclosed.                                                               |
-| \s        | match any whitespace character, space, a newline, a tab, a carriage, return, a formfeed or a backspace. |
-| \S         | matches any char except whitespace.                                                                     |
-| \w        | matches any "word" char (upper-lower letters, digit, underscore).                                       |
-| \W        | matches any char but not these (upper-lower letters, digit, underscore).                                |
-|-----------+---------------------------------------------------------------------------------------------------------|
-*e.g.* search for the characters (Welcome) at the beginning of a line, press =M-C-s= and type =^Welcome=.
-
 * Keyboard Macros
 
 | Shortcut        | Command Invoked           | Description                                                          |
@@ -840,11 +868,19 @@ Explanation of the regular expression:
 |------------+------------------------------+-------------------------------------------------------------------------------------------|
 | Keystrokes | Command Name                 | Action                                                                                    |
 |------------+------------------------------+-------------------------------------------------------------------------------------------|
+| M-x        | auto-fill-mode               | Turn ON/OFF auto-fill-mode                                                                |
+| M-q        | fill-paragraph               | Fill paragraph at or after point.                                                         |
+| ESC 1 M-q  | -                            | Justify and Fill paragraph at or after point.                                             |
+| M-x        | fill-region                  | Fill each paragraph in the region.                                                        |
+| ESC 1 M-x  | fill-region                  | Justify and Fill each paragraph in the region.                                            |
+| M-x        | fill-region-as-paragraph     | Fill region as one long paragraph.                                                        |
+| ESC 1 M-x  | -                            | Justify and Fill region as one long paragraph.                                            |
+| C-x f      | set-fill-column              | set the fill column value.                                                                |
 | M-=        | count-words-region START END | Count the lines, number of words and characters in the region.                            |
 | C-u num    | universal-argument           | begin a numeric argument for the following command.                                       |
 | M--        | negative-argument            | begin a negative numeric argument for the next command.                                   |
 | C-q char   | quoted-insert                | read next input character and insert it. This is useful for inserting control characters. |
-| C-x C-q    | read-only-mode               | to execute command (read-only-mode) ON/OFF                                              |
+| C-x C-q    | read-only-mode               | to execute command (read-only-mode) ON/OFF                                                |
 |------------+------------------------------+-------------------------------------------------------------------------------------------|
 
 ** Enter Numeric values
