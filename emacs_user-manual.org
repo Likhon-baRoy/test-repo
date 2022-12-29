@@ -24,7 +24,7 @@ which is very well documented and easy to understand. In this document I'm use
 - [[#modeline][Modeline]]
 - [[#search][Search]]
   - [[#search-&-replace][Search & Replace]]
-- [[#mark,-region-and-kill-ring][Mark, region and kill-ring]]
+- [[#mark-region-and-kill-ring][Mark, region and kill-ring]]
 - [[#getting-help][Getting Help]]
 - [[#killing-and-delete][Killing and Deleting]]
 - [[#undo/redo][Undo/Redo]]
