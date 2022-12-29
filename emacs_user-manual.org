@@ -8,8 +8,12 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://thomasf.github.io/solarized-css/solarized-dark.min.css" />
 
 :DRAWERNAME:
-*NOTE:* /I personally prefer Emacs build-in TUTORIAL first, which is very well documented and easy to understand. \\
-This documentation is still in progress, so you better stick to it. cheers!/ 🍻
+📝 *NOTE:* (/for Beginners/) I personally prefer Emacs build-in TUTORIAL first,
+which is very well documented and easy to understand. In this document I'm use
+=Ctrl= as =C=, =Alt= as =M=, =Shift= as =S=, =Space= as =SPC= and =BackSpace= as
+=BS=.
+
+/This documentation is still in progress, so you better stick to it. cheers!/ 🍻
 :END:
 
 * Table of Contents                                                     :TOC:
@@ -41,23 +45,6 @@ This documentation is still in progress, so you better stick to it. cheers!/ �
 - [[#org][ORG]]
 - [[#Spelling-check][Spelling Check]]
 
-* Document Key
-- C
-  - The control key. *e.g.* =C-x= is =Ctrl= + =x=.
-- M
-  - The =meta= key.  This key does not exist on most modern keyboards.  To simulate, this is usually mapped to pressing (and releasing) the Esc key once.  It is sometimes also mapped to the =Alt= key. *e.g.* =M-x= is =Alt= + =x=.
-
-- C-<key>
-  - Hold the control key, and press <key>.
-
-- M-<key>
-  - Hold the =Alt= key, and press <key>.
-    Or press the =Esc= key once, and press <key>.
-- S-x
-  is =Shift= + =x=
-- C-M-x
-  is =Ctrl= + =Alt= + =x=
-
 * Basics of Emacs
 ** Moving Around in the Buffer
 General Shortcuts
@@ -88,6 +75,7 @@ General Shortcuts
 | C-u (n)    | universal-argument                | repeat the next command (N) times                       |
 | M-g c      | goto-char                         | goto char (N) of file                                   |
 | M-g M-g    | goto-line                         | goto line (N) of file                                   |
+| C-g        | keyboard-quit                     | to cancel a command                                       |
 |------------+-----------------------------------+---------------------------------------------------------|
 
 ** Files
@@ -105,6 +93,21 @@ General Shortcuts
 | C-x C-c    | save-buffers-kill-emacs  | Offer to save each buffer, then kill Emacs                          |
 | C-z        | suspend-emacs            | Suspend Emacs temporarily                                           |
 |------------+--------------------------+---------------------------------------------------------------------|
+
+** Asking input on quit
+
++ =save file /home/Document ? (y, n, !, ., q, C-r, C-h)=
+  |-----------+--------------------------------------------|
+  | Character | Description                                |
+  |-----------+--------------------------------------------|
+  | =y=         | Save the specific file                     |
+  | =n=         | Do not save the specific file              |
+  | =!=         | to Save all of files at once and then Quit |
+  | =q=         | Quit immediately without saving            |
+  | =.=         | Save the specific file and then Quit       |
+  | =C-r=       | View the specific file                     |
+  | =C-h=       | Display help information                   |
+  |-----------+--------------------------------------------|
 
 * Modeline
 
@@ -485,7 +488,7 @@ Eshell comes with a feature-rich command history facility.  Because Eshell does 
 - C-a / C-e
   - Move to the beginning or end of line.
 
-    Unfortunately, the search-as-you-type history search in M-x shell (bound to M-r) is not implemented in Eshell.
++ Unfortunately, the search-as-you-type history search in =M-x= shell (bound to =M-r=) is not implemented in Eshell.
 
 Because I program a lot, I tend to use M-m instead of C-a to move to the beginning of the line. M-m skips indentation and moves to the first non-whitespace char, unlike C-a.
 
@@ -494,7 +497,8 @@ That command does not work in Eshell, for obvious reasons, but you can rebind it
 #+BEGIN_SRC emacs-lisp
   (define-key eshell-mode-map (kbd "M-m") 'eshell-bol)
 #+END_SRC
-History Interaction
+
+*** History Interaction
 
 You can rewrite previous commands found in Eshell’s history. The syntax is similar to what you find in bash, but it’s just a subset of the most common features. It’s probably easier to refer you to the bash info manual for detailed information on how the history interaction works. I’ve included a small table below that describes most of the history syntax Eshell supports.
 
@@ -533,20 +537,15 @@ Useful Keybindings
 
 Eshell comes equipped with a couple of quality-of-life improvements that make interacting with Emacs and Eshell a lot easier.
 
-C-c M-b
-
-    Inserts the printed buffer name at point
-C-c M-i
-
-    Inserts the printed process name at point
-C-c M-v
-
-    Inserts an environment variable name at point
-C-c M-d
-
-    Toggles between direct input and delayed input (send on RET).
-
-    Useful for some programs that don’t work correctly with buffered input.
+- C-c M-b
+  - Inserts the printed buffer name at point
+- C-c M-i
+  - Inserts the printed process name at point
+- C-c M-v
+  - Inserts an environment variable name at point
+- C-c M-d
+  - Toggles between direct input and delayed input (send on RET).
+ Useful for some programs that don’t work correctly with buffered input.
 
 ** Shell History Ring
 
@@ -845,6 +844,7 @@ Explanation of the regular expression:
 | C-u num    | universal-argument           | begin a numeric argument for the following command.                                       |
 | M--        | negative-argument            | begin a negative numeric argument for the next command.                                   |
 | C-q char   | quoted-insert                | read next input character and insert it. This is useful for inserting control characters. |
+| C-x C-q    | read-only-mode               | to execute command (read-only-mode) ON/OFF                                              |
 |------------+------------------------------+-------------------------------------------------------------------------------------------|
 
 ** Enter Numeric values
