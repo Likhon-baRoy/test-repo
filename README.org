@@ -455,6 +455,4 @@ This project is open source software licensed under the [[https://github.com/ser
 <p style="text-align: center;">Copyright © 2022-present, Likhon Baroy.</p>
 #+end_html
 
-#+HTML: <p style="text-align: center;">
-Copyright © 2022-present, Likhon Baroy.
-#+HTML: </p>
+#+HTML: <p style="text-align: center;">Copyright © 2022-present, Likhon Baroy.</p>
