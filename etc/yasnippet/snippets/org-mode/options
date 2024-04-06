@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: #+options
+# key: /op
+# --
+#+OPTIONS: $0

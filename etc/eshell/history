@@ -1,0 +1,72 @@
+clear 
+python main.py 
+[himalayaClub]
+swipl himalayaClub.pl 
+cls
+cls
+cls
+exit
+swipl 
+ls
+javac array.java 
+javac Array.java 
+javac Array.java 
+javac Array.java 
+javac Array.java 
+java Array
+ls
+cls
+javac thread.java 
+javac Thread.java 
+cls
+java Thread
+javac Thread.java 
+cls
+javac Thread.java 
+cls
+javac Thread.java 
+javac Thread.java cls
+cls
+javac Thread.java cls
+cls
+javac Thread.java
+cls
+javac Thread.java
+cls
+javac MyThread.java 
+java MyThread.class 
+java MyThread
+java MyThread.class 
+javac MyThread.java 
+cls
+javac MyThread.java 
+java MyThread
+javac MyThread.java 
+java MyThread
+cls
+javac MyThread.java 
+cls
+java MyThread
+javac MyRunnable.java 
+cls
+ cls
+javac MyRunnable.java 
+cls
+javac MyRunnable.java 
+java MyRunnable
+cls
+javac MyRunnable.java 
+java MyRunnable
+cls
+javac MyRunnable.java 
+cls
+javac MyRunnable.java 
+cls
+javac MyRunnable.java 
+cls
+javac MyRunnable.java 
+java MyRunnable
+cls
+javac MyRunnable.java 
+cls
+java MyRunnable
