@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="3;url=index.html">
+    <title>Logging Out</title>
+    <script>
+      // Redirect to the homepage (or any other page)
+      setTimeout(function() {
+          // Clear user data if using localStorage (you can adjust this depending on session management method)
+          localStorage.clear();  // Only necessary if using localStorage for login
+          window.location.href = "index.html"; // Redirect to home page
+      }, 3000);
+    </script>
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+          text-align: center;
+          padding: 50px;
+      }
+      h1 {
+          font-size: 2em;
+          color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>You have been logged out</h1>
+    <p>Redirecting to homepage in 3 seconds...</p>
+  </body>
+</html>
