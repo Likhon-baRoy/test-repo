@@ -1,4 +1,4 @@
-#+TITLE: String Basics
+#+TITLE: String Basics Tutorial
 #+DATE:   2026 Mar 26
 #+LANGUAGE: en
 #+STARTUP: overview
@@ -24,33 +24,29 @@ Strings are not available in *C*. Instead, we use a char array to read strings, 
 When we have a /char/ =arr[]= in *C* and want to iterate over the characters with a loop like:
 
 #+BEGIN_SRC c
-for (int i = 0; i < strlen(arr); i++) {
-    printf("%c", arr[i]);
-}
+  for (int i = 0; i < strlen(arr); i++) {
+      printf("%c", arr[i]);
+  }
 #+END_SRC
 
-⚠️ Problem:
+*# Problem* :
 Using strlen(arr) inside loop condition increases complexity.
 
 - strlen(arr) itself = =O(n)=
 - Loop runs =n= times
 - Total complexity = =O(n^2)=
 
----
-
-Optimized Version:
+*Optimized Version* :
 
 #+BEGIN_SRC c
-int len = strlen(arr);
+  int len = strlen(arr);
 
-for (int i = 0; i < len; i++) {
-    printf("%c", arr[i]);
-}
+  for (int i = 0; i < len; i++) {
+      printf("%c", arr[i]);
+  }
 #+END_SRC
 
 Now complexity = =O(n)=
-
----
 
 * Substring
 
@@ -71,13 +67,9 @@ For S = "abc", substrings are:
 
 - Therefore, a string of length =N= contains =N * (N + 1)  / 2= substrings.
 
----
-
 * Subsequence
 
 A subsequence is a sequence that can be derived from another sequence by deleting some elements (/possibly zero but not all/) without changing the order of the remaining elements.
-
----
 
 *Example* :
 For S = "abc", subsequences are:
@@ -94,13 +86,9 @@ For S = "abc", subsequences are:
 
 - Therefore, a sequence of size =N= contains =2^N - 1= subsequences.
 
----
-
 * Subset
 
 Subset is any unordered set of elements from the original list.
-
----
 
 *Example* :
 For S = "abc", subsets are:
@@ -116,16 +104,12 @@ For S = "abc", subsets are:
 
 ---
 
-- Therefore, a set of size =N= contains =2^N= subsets.
-
----
+Therefore, a set of size =N= contains =2^N= subsets.
 
 *NOTE* :
 
 - ={b, a, c}= is a subset of string ="abc"= but not a subsequence.
 - Each subsequence of a collection of elements is its subset also, but reverse does not hold.
-
----
 
 * Sublist
 
@@ -133,8 +117,6 @@ Sublist is any unordered list derived from the original list.
 
 - Elements need not be unique
 - Must exist on separate indices in the original list
-
- ---
 
 * Reference
 
