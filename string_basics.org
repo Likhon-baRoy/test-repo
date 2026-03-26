@@ -30,7 +30,7 @@ When we have a /char/ =arr[]= in *C* and want to iterate over the characters wit
 #+END_SRC
 
 *# Problem* :
-Using strlen(arr) inside loop condition increases complexity.
+Using =strlen(arr)= inside loop condition increases complexity.
 
 - strlen(arr) itself = =O(n)=
 - Loop runs =n= times
@@ -63,9 +63,7 @@ For S = "abc", substrings are:
 5. *bc*
 6. *abc*
 
----
-
-- Therefore, a string of length =N= contains =N * (N + 1)  / 2= substrings.
+Therefore, a string of length =N= contains =N * (N + 1)  / 2= substrings.
 
 * Subsequence
 
@@ -82,9 +80,7 @@ For S = "abc", subsequences are:
 6. *ac*
 7. *abc*
 
----
-
-- Therefore, a sequence of size =N= contains =2^N - 1= subsequences.
+Therefore, a sequence of size =N= contains =2^N - 1= subsequences.
 
 * Subset
 
@@ -101,8 +97,6 @@ For S = "abc", subsets are:
 6. ={a, b}=
 7. ={a, c}=
 8. ={a, b, c}=
-
----
 
 Therefore, a set of size =N= contains =2^N= subsets.
 
