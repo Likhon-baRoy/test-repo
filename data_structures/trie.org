@@ -1,0 +1,14 @@
+#+TITLE: Trie
+#+STARTUP: overview
+
+* Definition
+
+Tree used for storing strings.
+
+---
+
+* Operations
+
+- Insert
+- Search
+- Prefix match

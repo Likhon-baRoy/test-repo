@@ -1,0 +1,17 @@
+#+TITLE: HackerRank Anagram
+#+STARTUP: overview
+
+* Pattern
+- Frequency
+
+---
+
+* Key Idea
+
+Split string into two halves and compare.
+
+---
+
+* Mistake
+
+- Forgetting odd length case

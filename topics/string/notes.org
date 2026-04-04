@@ -1,0 +1,9 @@
+#+TITLE: String Quick Notes
+#+STARTUP: overview
+
+* Quick Revision
+
+- substring → contiguous
+- subsequence → order preserved
+- freq[26] → fastest
+- sliding window → substring problems

@@ -1,0 +1,20 @@
+#+TITLE: KMP Algorithm
+#+STARTUP: overview
+
+* Idea
+
+Avoid re-checking characters using LPS array.
+
+---
+
+* LPS Construction
+
+#+BEGIN_SRC cpp
+vector<int> lps(n);
+#+END_SRC
+
+---
+
+* Usage
+
+Pattern matching in O(n)

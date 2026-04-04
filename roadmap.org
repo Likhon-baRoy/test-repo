@@ -1,0 +1,26 @@
+#+TITLE: Learning Roadmap
+#+STARTUP: overview
+
+* Phase 1
+- String
+- Array
+
+* Phase 2
+- Linked List
+- Stack
+- Queue
+
+* Phase 3
+- Tree
+- Graph
+
+* Phase 4
+- Dynamic Programming
+
+---
+
+* Rule
+
+Do not move forward unless:
+- Patterns are clear
+- Can recognize problem type instantly

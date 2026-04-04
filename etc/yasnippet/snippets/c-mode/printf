@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: printf
-# contributor: Likhon
-# key: /p
-# --
-printf("${1:%d\n}"$2);
-$0

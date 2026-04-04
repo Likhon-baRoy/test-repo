@@ -1,0 +1,8 @@
+#+TITLE: Daily Revision
+#+STARTUP: overview
+
+* Strings
+
+- freq array
+- sliding window
+- substring vs subsequence

@@ -1,0 +1,11 @@
+#+TITLE: Mistakes Log
+#+STARTUP: overview
+
+* String
+
+** Anagram
+Mistake:
+- missed length check
+
+Fix:
+- always validate input

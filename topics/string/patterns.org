@@ -1,0 +1,36 @@
+#+TITLE: String Patterns
+#+STARTUP: overview
+
+* Table of Contents :TOC:
+- [[#sliding-window][Sliding Window]]
+- [[#frequency][Frequency]]
+- [[#two-pointer][Two Pointer]]
+- [[#links][Links]]
+
+* Sliding Window
+
+Trigger:
+- longest substring
+- unique characters
+
+---
+
+* Frequency
+
+Used for:
+- anagram
+- counting
+
+---
+
+* Two Pointer
+
+Used for:
+- palindrome
+- reverse
+
+---
+
+* Links
+
+- [[../../algorithms/string/kmp.org][KMP Algorithm]]

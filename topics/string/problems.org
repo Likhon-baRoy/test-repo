@@ -1,0 +1,20 @@
+#+TITLE: String Problem Mapping
+#+STARTUP: overview
+
+* Problems
+
+** Anagram
+Pattern:
+- Frequency
+
+---
+
+** Longest Substring Without Repeating
+Pattern:
+- Sliding Window
+
+---
+
+** Palindrome
+Pattern:
+- Two Pointer

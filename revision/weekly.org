@@ -1,0 +1,14 @@
+#+TITLE: Weekly Review
+#+STARTUP: overview
+
+* Weak Areas
+
+- DP
+- Graph
+
+---
+
+* Practice Plan
+
+- 5 string problems
+- 3 DP problems
