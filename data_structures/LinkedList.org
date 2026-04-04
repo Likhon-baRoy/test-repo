@@ -1,0 +1,87 @@
+#+TITLE: Linked List Foundations
+#+DATE: [2026-04-04 Sat]
+#+FILETAGS: :data_structure:pointers:linear:
+#+PROPERTY: header-args:cpp :flags -std=c++17 :results scalar :exports both
+
+* Revision Ledger
+| Date             | Concept         | Confidence | Next Review |
+|------------------+-----------------+------------+-------------|
+| <2026-04-04 Sat> | Singly LL Setup | 5          | [2026-04-11] |
+
+* Mental Model
+Unlike arrays, Linked Lists are non-contiguous. Each node is a "train car" that only knows who is behind it.
+- *Pros:* $O(1)$ insertion/deletion (if pointer is known).
+- *Cons:* $O(N)$ access time (no random access).
+
+* Implementation Template
+#+BEGIN_SRC cpp
+  struct Node {
+      int data;
+      Node* next;
+      Node(int val) : data(val), next(nullptr) {}
+  };
+#+END_SRC
+
+* The "Two-Pointer" Power Move
+This is the most important pattern to document for Linked Lists. It avoids $O(N^2)$ approaches and handles cycles.
+
+** 1. Slow & Fast (Tortoise and Hare)
+Used for:
+- Finding the middle of a list.
+- Detecting cycles (Floyd’s Cycle-Finding).
+
+
+
+** 2. Gap (Ahead) Pointer
+Used for:
+- Finding the $N^{th}$ node from the end in one pass.
+- Move the 'fast' pointer $N$ steps ahead, then move both at the same speed.
+
+* Interactive Lab: Reverse a Linked List
+This is the "Hello World" of Linked List manipulation.
+#+BEGIN_SRC cpp
+  #include <iostream>
+
+  struct Node {
+      int data;
+      Node* next;
+      Node(int val) : data(val), next(nullptr) {}
+  };
+
+  Node* reverseList(Node* head) {
+      Node* prev = nullptr;
+      Node* curr = head;
+      while (curr != nullptr) {
+          Node* nextTemp = curr->next; // Save next
+          curr->next = prev;           // Reverse pointer
+          prev = curr;                 // Move prev forward
+          curr = nextTemp;             // Move curr forward
+      }
+      return prev;
+  }
+
+  int main() {
+      // Manual setup for 1 -> 2 -> 3
+      Node* head = new Node(1);
+      head->next = new Node(2);
+      head->next->next = new Node(3);
+
+      Node* newHead = reverseList(head);
+      std::cout << "Reversed Head Data: " << newHead->data << std::endl;
+      return 0;
+  }
+#+END_SRC
+
+#+RESULTS:
+: Reversed Head Data: 3
+
+* Memory Anchors (The "Forget-Me-Nots")
+- *The "Dummy Head" Trick:* Always use a `dummy` node (`Node* dummy = new Node(0); dummy->next = head;`) when deleting nodes or merging lists. It simplifies edge cases where the 'head' itself changes.
+- *Lost in Space:* Always save `curr->next` *before* changing `curr->next`. Once you reassign the pointer, the rest of the list is lost to the garbage collector.
+- *Infinite Loops:* If you don't update your `curr` pointer inside the `while` loop, Emacs will hang. Use `C-c C-k` to kill the process if it stalls.
+
+* Practice Order
+1. [X] Reverse Linked List (Iterative & Recursive)
+2. [X] Detect Cycle (Floyd's)
+3. [X] Merge Two Sorted Lists
+4. [X] Remove N-th Node From End
