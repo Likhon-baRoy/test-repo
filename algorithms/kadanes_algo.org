@@ -1,0 +1,70 @@
+#+TITLE: Kadane's Algorithm (Maximum Subarray Sum)
+#+AUTHOR: Your Name
+#+DATE: [2026-04-04 Sat]
+#+FILETAGS: :algo:dp:linear:
+#+PROPERTY: header-args:cpp :flags -std=c++17 :results scalar :exports both
+
+* Revision Ledger
+:PROPERTIES:
+:VISIBILITY: children
+:END:
+| Date             | Phase     | Confidence (1-5) | Next Review | Note                     |
+|------------------+-----------+------------------+-------------+--------------------------|
+| <2026-04-04 Sat> | Learned   | 5                | [2026-04-11] | Initial implementation   |
+|                  | Review    |                  |             |                          |
+
+* Mental Model
+The "Core Invariant": At each index ~i~, we ask:
+"Is it better to extend the existing subarray, or start a new one right here?"
+
+
+
+** The Math
+$$current\_max = \max(A[i], current\_max + A[i])$$
+$$global\_max = \max(global\_max, current\_max)$$
+
+* Interactive Implementation
+This block can be executed with =C-c C-c=.
+
+#+NAME: kadane-cpp
+#+BEGIN_SRC cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <climits>
+
+int solve() {
+    // Example with negatives and positives
+    std::vector<int> nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+
+    int current_max = nums[0];
+    int global_max = nums[0];
+
+    for (size_t i = 1; i < nums.size(); i++) {
+        // Choice: Join previous chain or start new?
+        current_max = std::max(nums[i], current_max + nums[i]);
+        // Track the best we've ever seen
+        global_max = std::max(global_max, current_max);
+    }
+
+    return global_max;
+}
+
+int main() {
+    std::cout << "Result: " << solve() << std::endl;
+    return 0;
+}
+#+END_SRC
+
+#+RESULTS: kadane-cpp
+: Result: 6
+
+* Memory Anchors (The "Forget-Me-Nots")
+- **The Empty Array:** If the problem allows an empty subarray, the answer should be $\max(0, global\_max)$.
+- **All Negatives:** If you initialize ~global_max = 0~, it will fail on ~[-5, -2, -10]~. Always initialize with ~INT_MIN~ or the first element.
+- **Space Complexity:** $O(1)$ - only two variables needed.
+- **Time Complexity:** $O(N)$ - single pass.
+
+* References
+- [[https://en.wikipedia.org/wiki/Maximum_subarray_problem][Wikipedia: Maximum Subarray]]
+- [[https://cp-algorithms.com/others/maximum_subarray_sum.html][CP-Algorithms: Max Subarray Sum]]
