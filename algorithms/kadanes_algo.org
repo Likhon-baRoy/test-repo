@@ -60,11 +60,11 @@ int main() {
 : Result: 6
 
 * Memory Anchors (The "Forget-Me-Nots")
-- **The Empty Array:** If the problem allows an empty subarray, the answer should be $\max(0, global\_max)$.
-- **All Negatives:** If you initialize ~global_max = 0~, it will fail on ~[-5, -2, -10]~. Always initialize with ~INT_MIN~ or the first element.
-- **Space Complexity:** $O(1)$ - only two variables needed.
-- **Time Complexity:** $O(N)$ - single pass.
+- *The Empty Array:* If the problem allows an empty subarray, the answer should be $\max(0, global\_max)$.
+- *All Negatives:* If you initialize ~global_max = 0~, it will fail on ~[-5, -2, -10]~. Always initialize with ~INT_MIN~ or the first element.
+- *Space Complexity:* $O(1)$ - only two variables needed.
+- *Time Complexity:* $O(N)$ - single pass.
 
 * References
 - [[https://en.wikipedia.org/wiki/Maximum_subarray_problem][Wikipedia: Maximum Subarray]]
-- [[https://cp-algorithms.com/others/maximum_subarray_sum.html][CP-Algorithms: Max Subarray Sum]]
+- [[https://cp-algorithms.com/others/maximum_average_segment.html#algorithm-2][CP-Algorithms: Max Subarray Sum]]
