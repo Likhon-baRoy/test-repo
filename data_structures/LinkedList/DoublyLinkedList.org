@@ -4,13 +4,12 @@
 #+FILETAGS: :data_structure:pointers:bidirectional:
 #+PROPERTY: header-args:cpp :flags -std=c++17 :results scalar :exports both
 
-* Table of Contents                                                     :TOC:
+Table of Contents                                                     :TOC:
 - [[#mental-model-the-bidirectional-train][Mental Model: The Bidirectional Train]]
 - [[#the-structure][The Structure]]
 - [[#core-operations-visualized][Core Operations Visualized]]
 - [[#interactive-lab-insert-at-tail][Interactive Lab: Insert at Tail]]
 - [[#recursive-vs-iterative-reversal][Recursive vs Iterative Reversal]]
-  - [[#the-recursive-approach][The Recursive Approach]]
 - [[#memory-anchors-the-forget-me-nots][Memory Anchors (The "Forget-Me-Nots")]]
 - [[#practice-challenges][Practice Challenges]]
 
