@@ -1,27 +1,19 @@
-#+TITLE: Competitive Programming Handbook
-#+STARTUP: overview
+#+TITLE: CP Handbook: The Problem-Solving Laboratory
+#+AUTHOR: Your Name
+#+STARTUP: showall indent
+#+TAGS: logic(l) math(m) tool(t)
 
-* Overview
+* Introduction
+This repository is a *living documentation* of my journey through competitive programming. It is designed for *Active Recall* and *Interactive Testing* using Emacs and Org-Babel.
 
-This repository is a structured knowledge base for:
-
-- Topics (concepts)
-- Algorithms (implementation)
-- Data Structures
-- Problems (practice)
-- Revision system
-
----
-
-* Structure
-
-- topics/ → conceptual understanding
-- algorithms/ → implementations
-- data_structures/ → standalone DS
-- problems/ → problem notes
-- revision/ → memory system
-
----
+* Directory Map
+| Directory | Purpose |
+| :--- | :--- |
+| [[file:topics/]] | Conceptual deep-dives (The "Why") |
+| [[file:algorithms/]] | Verified, copy-pasteable templates |
+| [[file:data_structures/]] | Custom implementations (LL, Trees, etc.) |
+| [[file:problems/]] | Notes on specific challenges (HackerRank/LeetCode) |
+| [[file:revision/]] | Post-mortems, mistake logs, and schedules |
 
 * Usage Flow
 
@@ -30,3 +22,43 @@ This repository is a structured knowledge base for:
 3. Study algorithm
 4. Solve problems
 5. Log mistakes
+
+* The "Interactive Lab" Protocol
+To ensure I don't just "read" but actually "do," every algorithm file must follow this workflow:
+
+1. *The Intuition:* Write the logic in plain English before looking at code.
+2. *The Template:* A clean C++ implementation inside an =#+BEGIN_SRC cpp= block.
+3. *The Test:* Use =C-c C-c= in Emacs to run the code against sample inputs.
+4. *The Anchor:* Identify one specific "edge case" (e.g., empty array, all negatives).
+
+---
+
+* Quick Reference: Time Complexity ($O$)
+A "cheat sheet" for quick estimations during contests.
+
+| Complexity | Name | Common Examples |
+| :--- | :--- | :--- |
+| $O(1)$ | Constant | Accessing array index, HashMap =get= |
+| $O(\log N)$ | Logarithmic | Binary Search, Heap operations |
+| $O(N)$ | Linear | Kadane's, Linear Search, LL traversal |
+| $O(N \log N)$ | Linearithmic | Merge Sort, Quick Sort, Map/Set operations |
+| $O(N^2)$ | Quadratic | Nested loops (Bubble sort, matrix traversal) |
+| $O(2^N)$ | Exponential | Recursive subsets, Brute-force DFS |
+
+* Essential Math Tricks
+Keep these "Mental Shortcuts" here for fast retrieval.
+
+- *Subarray Count:* A string/array of length $N$ has $N(N+1)/2$ non-empty subarrays.
+- *Subsequence Count:* A sequence of length $N$ has $2^N - 1$ non-empty subsequences.
+- *Bitwise Power:* $2^N$ is the same as =(1 << N)=.
+- *Parity Check:* =(x & 1)= is faster than =(x % 2 != 0)=.
+
+* Emacs Power Moves for this Repo
+- *Navigate:* =C-c C-o= to follow any file link in the Directory Map.
+- *Structure:* =S-TAB= to cycle global visibility (Overview -> Contents -> Show All).
+- *Execute:* =C-c C-c= to run a code block and see the =#+RESULTS=.
+- *Search:* =M-x counsel-rg= (if installed) to find any algorithm across the whole repo instantly.
+
+* Current Status
+- *Current Focus:* [[file:topics/recursion_1.org][Recursion 1]]
+- *Next Milestone:* Binary Trees
