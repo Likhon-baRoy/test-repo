@@ -1,26 +1,72 @@
-#+TITLE: Learning Roadmap
-#+STARTUP: overview
+#+TITLE: Competitive Programming Roadmap
+#+STARTUP: content indent
+#+COLUMNS: %40ITEM %10STATUS(Status) %10CONFIDENCE{+} %TAGS
+#+PROPERTY: Confidence_ALL 1 2 3 4 5
 
-* Phase 1
-- String
-- Array
+* Mastery Progress [20%]
+:PROPERTIES:
+:VISIBILITY: children
+:END:
+This is the master checklist. Use =C-c C-c= to toggle items.
 
-* Phase 2
-- Linked List
-- Stack
-- Queue
+** Phase 1: Linear Foundations [3/4]
+- [X] *Array & String* :basics:
+- [X] *Hash Table* :lookup:
+- [X] *Arrays 101* :implementation:
+- [X] *Linked List* :pointers: (Just Completed!)
 
-* Phase 3
-- Tree
-- Graph
+** Phase 2: Functional Logic [0/3] [/]
+- [ ] *Queue & Stack* :linear:
+- [ ] *Recursion 1* :logic:mental_model: <<Current Focus>>
+- [ ] *Binary Search* :optimization:divide_and_conquer:
 
-* Phase 4
-- Dynamic Programming
+** Phase 3: Non-Linear Data [0/2] [/]
+- [ ] *Heap* :priority_queue:
+- [ ] *Binary Tree* :hierarchical:
 
----
+** Phase 4: Advanced Recursion & Beyond [0/1] [/]
+- [ ] *Recursion 2* :backtracking:dp:
 
-* Rule
 
-Do not move forward unless:
-- Patterns are clear
-- Can recognize problem type instantly
+* Detailed Topic Breakdown
+Each entry links to its corresponding study file for fast navigation.
+
+** 1. Linear Foundations
+*** *Array & String*
+- [X] Substring vs Subsequence vs Subset
+- [X] Sliding Window Pattern
+- [X] Two-Pointer Pattern
+- Link: [[file:topics/string/basics.org]]
+
+*** *Linked List*
+- [X] Singly Linked List Implementation
+- [X] Doubly Linked List Implementation
+- [X] Reverse a List (Iterative & Recursive)
+- [X] Detect Cycle (Floyd's)
+- Link: [[file:data_structures/doubly_linked_list.org]]
+
+** 2. Functional Logic
+*** *Recursion 1*
+- [ ] Understanding the *Call Stack*
+- [ ] Base Case vs Recursive Step
+- [ ] Divide and Conquer (Merge Sort Intro)
+- [ ] Task: Re-implement LL reversal recursively (No looking!)
+
+** 3. Non-Linear Data
+*** *Binary Tree*
+- [ ] Pre-order, In-order, Post-order
+- [ ] Level-order (BFS)
+- [ ] Height and Depth logic
+
+* The "Weak Point" Log
+If you struggle with a topic, add it here with a "Review Date."
+
+| Topic         | Why it's hard?              | Review Date  |
+| :---          | :---                        | :---         |
+| Recursion     | Tracking state in the stack | [2026-04-10] |
+| Pointer Logic | Segfaults on NULL tail      | [2026-04-12] |
+
+* Roadmap Strategy (The "How-To")
+1. *Don't Rush:* If a topic has a low *Confidence* score in your =revision.org=, do not move to the next phase.
+2. *Visual Learning:* For Recursion and Trees, *draw the tree* in your notebook before typing code.
+3. *Emacs Trick:* Use =M-x org-columns= while on a header to see a spreadsheet-like view of your progress and confidence levels!
