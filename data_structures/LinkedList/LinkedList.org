@@ -30,11 +30,9 @@ Used for:
 - Finding the middle of a list.
 - Detecting cycles (Floyd’s Cycle-Finding).
 
-
-
 ** 2. Gap (Ahead) Pointer
 Used for:
-- Finding the $N^{th}$ node from the end in one pass.
+- Finding the $N^{th }$ node from the end in one pass.
 - Move the 'fast' pointer $N$ steps ahead, then move both at the same speed.
 
 * Interactive Lab: Reverse a Linked List
