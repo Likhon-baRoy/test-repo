@@ -1,0 +1,80 @@
+#+TITLE: The Technical Interview Battle Plan
+#+AUTHOR: Your Name
+#+DATE: [2026-04-06 Mon]
+#+STARTUP: content indent
+#+FILETAGS: :interview:strategy:preparation:
+
+Table of Contents                                                     :TOC:
+- [[#the-mental-model-think-aloud][The Mental Model: Think Aloud]]
+- [[#the-timeline-strategy][The Timeline Strategy]]
+- [[#the-problem-solving-framework-5-steps][The Problem-Solving Framework (5 Steps)]]
+- [[#high-frequency-patterns-checklist][High-Frequency Patterns Checklist]]
+- [[#the-behavioral-buffer-star-method][The Behavioral Buffer (STAR Method)]]
+- [[#mock-interview-log][Mock Interview Log]]
+
+* The Mental Model: Think Aloud
+In a CP contest, only the *result* matters. In an interview, the *process* is the product.
+- *Goal:* Make your brain "transparent" to the interviewer.
+- *Rule:* If you aren't typing, you should be talking.
+
+
+
+* The Timeline Strategy
+
+** T-Minus 1 Month: The Breadth Phase
+- Focus on *Patterns*, not problems.
+- Ensure your =data_structures/= and =algorithms/= folders are 80% complete.
+- Solve 2-3 "Medium" problems daily across different topics.
+
+** T-Minus 1 Week: The Depth Phase
+- Re-solve your *Mistakes Log* in =revision/mistakes.org=.
+- Practice "Blind Coding" (no IDE/LSP assistance).
+- Review time and space complexities for everything in your =README.org=.
+
+** T-Minus 1 Day: The Preservation Phase
+- Stop solving new problems.
+- Read through your "Intuition" sections in your Org files.
+- Ensure your Emacs environment (or the interview platform) is ready.
+
+* The Problem-Solving Framework (5 Steps)
+Use this exact order during the interview:
+
+1. *Clarify:* Ask about edge cases. "Can the array be empty?" "Are there negative numbers?"
+2. *Brute Force:* State the $O(N^2)$ or $O(2^N)$ approach first. *Never* start coding yet.
+3. *Optimize:* Look for bottlenecks. Can I use a *Hash Table* to get $O(1)$ lookup? Can I use *Two Pointers*?
+4. *Dry Run:* Walk through your logic with a small test case *before* writing a line of code.
+5. *Code:* Write clean, modular code.
+
+* High-Frequency Patterns Checklist
+Keep track of your comfort level with these "Big Winners":
+
+- [ ] *Sliding Window:* (Strings, contiguous subarrays)
+- [ ] *Two Pointers:* (Sorted arrays, Linked List middle/cycle)
+- [ ] *Fast & Slow Pointers:* (Linked List cycles)
+- [ ] *Merge Intervals:* (Scheduling problems)
+- [ ] *Topological Sort:* (Dependency tasks)
+- [ ] *Recursion/Backtracking:* (Subsets, Permutations)
+
+* The Behavioral Buffer (STAR Method)
+Even for technical roles, you need these stories ready.
+- *S*ituation | *T*ask | *A*ction | *R*esult
+
+| Story Category | Scenario | Key Takeaway |
+| :--- | :--- | :--- |
+| *Conflict* | Disagreed with a teammate | Compromise & Data-driven logic |
+| *Failure* | A bug that reached production | Accountability & Learning |
+| *Pride* | Most difficult algo implemented | Persistence & Research |
+
+* Mock Interview Log
+Practice with a friend or use a site like Pramp.
+
+| Date | Problem | Result | What went wrong? |
+| :--- | :--- | :--- | :--- |
+| | | | |
+
+* The "Emergency" Cheat Sheet
+If you get stuck, ask yourself these "Rescue Questions":
+1. Can I sort the input? ($O(N \log N)$ is often acceptable).
+2. Is there a pattern in the *prefix sums*?
+3. Can I use a *Heap* to track the Top K elements?
+4. Am I repeating work that a *Hash Table* could store?

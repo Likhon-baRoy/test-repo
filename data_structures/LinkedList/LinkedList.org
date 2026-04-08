@@ -30,6 +30,26 @@ Used for:
 - Finding the middle of a list.
 - Detecting cycles (Floyd’s Cycle-Finding).
 
+Here we provide a template for you to solve the [[https://leetcode.com/explore/learn/card/linked-list/214/two-pointer-technique/1216/][two-pointer problem]] in the linked list.
+
+#+BEGIN_SRC cpp
+  // Initialize slow & fast pointers
+  ListNode* slow = head;
+  ListNode* fast = head;
+  /**
+   ,* Change this condition to fit specific problem.
+   ,* Attention: remember to avoid null-pointer error
+   ,**/
+  while (slow && fast && fast->next) {
+      slow = slow->next;          // move slow pointer one step each time
+      fast = fast->next->next;    // move fast pointer two steps each time
+      if (slow == fast) {         // change this condition to fit specific problem
+          return true;
+      }
+  }
+  return false;   // change return value to fit specific problem
+#+END_SRC
+
 ** 2. Gap (Ahead) Pointer
 Used for:
 - Finding the $N^th$ node from the end in one pass.
