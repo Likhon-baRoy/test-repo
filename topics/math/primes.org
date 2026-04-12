@@ -1,0 +1,108 @@
+#+TITLE: Prime Numbers & Sieve of Eratosthenes
+#+DATE: [2026-04-12 Sun]
+#+FILETAGS: :math:number_theory:optimization:
+#+PROPERTY: header-args:cpp :flags -std=c++17 :results scalar :exports both
+
+Table of Contents                                                     :TOC:
+- [[#mental-model-the-sieve-of-truth][Mental Model: The Sieve of Truth]]
+- [[#1-basic-primality-test-trial-division][1. Basic Primality Test (Trial Division)]]
+- [[#2-sieve-of-eratosthenes-range-primality][2. Sieve of Eratosthenes (Range Primality)]]
+- [[#complexity-analysis][Complexity Analysis]]
+- [[#memory-anchors-the-forget-me-nots][Memory Anchors (The "Forget-Me-Nots")]]
+
+* Mental Model: The Sieve of Truth
+Imagine a grid of numbers. To find primes, we don't look for "primeness"; we look for *compositeness*.
+1. We start at 2 (the first prime).
+2. We "kick out" all its multiples ($4, 6, 8, \dots$) because they can't be prime.
+3. We move to the next "surviving" number and repeat.
+Whatever is left standing must be prime.
+
+
+
+* 1. Basic Primality Test (Trial Division)
+To check if a single number $N$ is prime, we only need to check divisors up to $\sqrt{N}$.
+
+** The Math
+If $N = a \times b$, then at least one of the factors ($a$ or $b$) must be less than or equal to $\sqrt{N}$. If we find no divisors up to $\sqrt{N}$, none exist above it.
+
+** Implementation
+#+BEGIN_SRC cpp
+  bool isPrime(int n) {
+      if (n <= 1) return false;
+      if (n <= 3) return true;
+      if (n % 2 == 0 || n % 3 == 0) return false;
+
+      for (int i = 5; i * i <= n; i = i + 6) {
+          if (n % i == 0 || n % (i + 2) == 0)
+              return false;
+      }
+      return true;
+  }
+#+END_SRC
+
+** Complexity
+- *Time:* $O(\sqrt{N})$
+- *Space:* $O(1)$
+
+[Image showing why we check up to the square root of n for primality]
+
+* 2. Sieve of Eratosthenes (Range Primality)
+When you need to know all primes up to $N$ (e.g., $N = 10^6$), calling ~isPrime~ $N$ times would be $O(N\sqrt{N})$, which is too slow. The Sieve is much faster.
+
+** Implementation
+#+BEGIN_SRC cpp :results output
+  #include <iostream>
+  #include <vector>
+
+  void sieve(int n) {
+      // Create a boolean vector "isPrime[0..n]" and initialize
+      // all entries it as true.
+      std::vector<bool> is_prime(n + 1, true);
+      is_prime[0] = is_prime[1] = false;
+
+      for (int p = 2; p * p <= n; p++) {
+          // If is_prime[p] is not changed, then it is a prime
+          if (is_prime[p]) {
+              // Update all multiples of p starting from p*p
+              // Anything before p² is already handled by smaller primes.
+              for (int i = p * p; i <= n; i += p)
+                is_prime[i] = false;
+          }
+      }
+
+      // Print first few primes for verification
+      for (int p = 2; p <= 20; p++) {
+          if (is_prime[p]) std::cout << p << " ";
+      }
+  }
+
+  int main() {
+      sieve(100);
+      return 0;
+  }
+#+END_SRC
+
+#+RESULTS:
+: 2 3 5 7 11 13 17 19
+
+* Complexity Analysis
+
+** Trial Division
+- *Time:* $O(\sqrt{N})$. Every time $N$ increases by $100\times$, the time only increases by $10\times$.
+
+** Sieve of Eratosthenes
+- *Time:* $O(N \log \log N)$. This is almost linear ($O(N)$). The $\log \log N$ comes from the sum of the reciprocals of primes (divergent harmonic series of primes).
+- *Space:* $O(N)$ to store the boolean array.
+
+* Memory Anchors (The "Forget-Me-Nots")
+- *The Smallest Prime:* 2 is the only even prime.
+- *The 1 Trap:* *1 is NOT prime.* Always handle this in your base case.
+- *Optimization:* In the sieve, the inner loop starts at ~i = p * p~. Why? Because multiples of ~p~ smaller than ~p * p~ (like $2p, 3p$) have already been marked by smaller primes.
+- *Constraints:* If $N > 10^7$, a standard sieve might hit memory limits. Consider a *Segmented Sieve* or *Bitset* for $10^8$.
+
+* Practice
+1. [ ] Find all primes between $L$ and $R$ (Segmented Sieve).
+2. [ ] Prime Factorization using Sieve (Precompute smallest prime factor - SPF).
+3. [ ] Goldbach's Conjecture: Every even integer > 2 is the sum of two primes.
+4. [-] https://www.geeksforgeeks.org/problems/sieve-of-eratosthenes5242/1
+5. [-] https://leetcode.com/problems/count-primes/solutions/2804559/sieve-of-eratosthenes/
