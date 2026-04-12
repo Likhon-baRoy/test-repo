@@ -3,12 +3,28 @@
 #+FILETAGS: :math:number_theory:optimization:
 #+PROPERTY: header-args:cpp :flags -std=c++17 :results scalar :exports both
 
-Table of Contents                                                     :TOC:
+* Table of Contents                                                     :TOC:
 - [[#mental-model-the-sieve-of-truth][Mental Model: The Sieve of Truth]]
 - [[#1-basic-primality-test-trial-division][1. Basic Primality Test (Trial Division)]]
+  - [[#the-math][The Math]]
+  - [[#implementation][Implementation]]
+  - [[#complexity][Complexity]]
 - [[#2-sieve-of-eratosthenes-range-primality][2. Sieve of Eratosthenes (Range Primality)]]
+  - [[#implementation-1][Implementation]]
 - [[#complexity-analysis][Complexity Analysis]]
+  - [[#trial-division][Trial Division]]
+  - [[#sieve-of-eratosthenes][Sieve of Eratosthenes]]
 - [[#memory-anchors-the-forget-me-nots][Memory Anchors (The "Forget-Me-Nots")]]
+- [[#practice][Practice]]
+- [[#3-odd-only-sieve-memory-optimization][3. Odd-only Sieve (Memory Optimization)]]
+  - [[#the-mapping-logic][The Mapping Logic]]
+  - [[#implementation-2][Implementation]]
+  - [[#complexity-1][Complexity]]
+- [[#4-segmented-sieve-range-optimization][4. Segmented Sieve (Range Optimization)]]
+  - [[#the-strategy][The Strategy]]
+  - [[#implementation-3][Implementation]]
+  - [[#complexity-2][Complexity]]
+- [[#memory-anchors-the-forget-me-nots-1][Memory Anchors (The "Forget-Me-Nots")]]
 
 * Mental Model: The Sieve of Truth
 Imagine a grid of numbers. To find primes, we don't look for "primeness"; we look for *compositeness*.
@@ -106,3 +122,123 @@ When you need to know all primes up to $N$ (e.g., $N = 10^6$), calling ~isPrime~
 3. [ ] Goldbach's Conjecture: Every even integer > 2 is the sum of two primes.
 4. [-] https://www.geeksforgeeks.org/problems/sieve-of-eratosthenes5242/1
 5. [-] https://leetcode.com/problems/count-primes/solutions/2804559/sieve-of-eratosthenes/
+
+* 3. Odd-only Sieve (Memory Optimization)
+Since all prime numbers except $2$ are $odd$, we can ignore even numbers entirely in our boolean array. This reduces the space complexity by half.
+
+** The Mapping Logic
+We map an index ~i~ in our boolean array to the odd number ~2i + 1~.
+- Index 0 $\to$ 1 (Not prime)
+- Index 1 $\to$ 3
+- Index 2 $\to$ 5
+- Index ~i~ $\to$ ~2i + 1~
+
+** Implementation
+#+BEGIN_SRC cpp :results output
+  #include <iostream>
+  #include <vector>
+
+  void oddSieve(int n) {
+      // Only need space for n/2 numbers
+      std::vector<bool> is_prime((n / 2) + 1, true);
+      is_prime[0] = false; // 1 is not prime
+
+      for (int i = 1; (2 * i + 1) * (2 * i + 1) <= n; i++) {
+          if (is_prime[i]) {
+              int p = 2 * i + 1;
+              // Mark odd multiples starting from p*p
+              // We increment by p because (odd + odd) = even (skip),
+              // but (odd + 2*odd) = odd (next multiple to check)
+              for (int j = (p * p) / 2; j <= n / 2; j += p)
+                  is_prime[j] = false;
+          }
+      }
+
+      std::cout << "2 "; // Handle the only even prime
+      for (int i = 1; i <= n / 2; i++) {
+          if (is_prime[i]) std::cout << 2 * i + 1 << " ";
+      }
+  }
+
+  int main() {
+      oddSieve(30);
+      return 0;
+  }
+#+END_SRC
+
+#+RESULTS:
+: 2 3 5 7 11 13 17 19 23 29
+
+** Complexity
+- *Time:* $O(N \log \log N)$ (Similar to standard Sieve but with fewer operations).
+- *Space:* $O(N/2)$ or $O(N/16)$ if using ~std::vector<bool>~ or bitsets.
+
+* 4. Segmented Sieve (Range Optimization)
+When you need to find primes in a range $[L, R]$ where $R$ is very large (e.g., $10^{12}$), but the range length $(R - L)$ is small (e.g., $10^6$), a standard sieve is impossible because you cannot allocate an array of size $10^{12}$.
+
+** The Strategy
+1. Precompute all primes up to $\sqrt{R}$ using a standard sieve.
+2. Create a boolean array of size $(R - L + 1)$.
+3. For each precomputed prime ($p \le \sqrt{R}$), mark its multiples within the range $[L, R]$.
+4. Mark all multiples of $p$ in that range as *not prime*.
+
+** Implementation
+#+BEGIN_SRC cpp :results output
+  #include <iostream>
+  #include <vector>
+  #include <cmath>
+  #include <algorithm>
+
+  void segmentedSieve(long long L, long long R) {
+      long long limit = sqrt(R);
+      std::vector<bool> mark(limit + 1, true);
+      std::vector<long long> primes;
+
+      // Step 1: Standard Sieve up to sqrt(R)
+      for (long long p = 2; p <= limit; p++) {
+          if (mark[p]) {
+              primes.push_back(p);
+              for (long long i = p * p; i <= limit; i += p)
+                  mark[i] = false;
+          }
+      }
+
+      // Step 2: Sieve the range [L, R]
+      std::vector<bool> is_prime_range(R - L + 1, true);
+      if (L == 1) is_prime_range[0] = false;
+
+      for (long long p : primes) {
+          // Find the first multiple of p in range [L, R]
+          long long first_multiple = (L / p) * p;
+          if (first_multiple < L) first_multiple += p;
+
+          // Start marking from the max of (p*p) and first_multiple
+          for (long long j = std::max(p * p, first_multiple); j <= R; j += p)
+              is_prime_range[j - L] = false;
+      }
+
+      // Step 3: Collect results
+      for (long long i = 0; i <= R - L; i++) {
+          if (is_prime_range[i]) std::cout << L + i << " ";
+      }
+  }
+
+  int main() {
+      segmentedSieve(100, 130);
+      return 0;
+  }
+#+END_SRC
+
+#+RESULTS:
+: 101 103 107 109 113 127
+
+** Complexity
+- *Time:* $O((R - L + 1) \log \log R + \sqrt{R} \log \log \sqrt{R})$.
+- *Space:* $O((R - L + 1) + \sqrt{R})$.
+
+* Memory Anchors (The "Forget-Me-Nots")
+- *The Index Shift:* In the Segmented Sieve, number ~X~ is stored at ~is_prime_range[X - L]~. This is the most common place for "off-by-one" errors.
+- *Starting Position:* In the inner loop, ensure you don't mark the prime itself if it happens to be in the range (e.g., if $L=2, p=2$, don't mark 2 as false). Using ~std::max(p * p, first_multiple)~ handles this.
+- *Memory Limits:* If $(R-L)$ is $10^6$, the boolean vector takes ~1MB~. If $R$ is $10^{12}$, $\sqrt{R}$ is $10^6$, which also takes ~1MB~. This fits comfortably in memory.
+
+Which of these two approaches do you find more challenging to implement from scratch—the indexing logic of the **Odd-only Sieve** or the range mapping in the **Segmented Sieve**?
